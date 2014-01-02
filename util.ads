@@ -1,6 +1,6 @@
 package Util is
    
-      subtype Bin_Num is Natural range 0..1 ;
-      type Bin_Array is array(64) of Bin_Num;
+   subtype Bin_Num is Natural range 0..1 ;
+   type Bin_Array is array(0..64) of Bin_Num;
       
 end Util;

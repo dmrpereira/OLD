@@ -1,4 +1,4 @@
-with Ada.Unbounded_String; use Ada.Unbounded_String;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Util; use Util;
 
 package Tokens is
@@ -33,9 +33,9 @@ package Tokens is
 private
    
 
-   type Token_Internal(T:Token_Kind) is
+   type Token_Internal(Kind:Token_Kind := Numeral_Tok ) is
       record
-         case T is
+         case Kind is
             when Numeral_Tok =>
                Numeral_Val : Natural;
             when Decimal_Tok =>
@@ -53,8 +53,10 @@ private
                Reserved_Val : Unbounded_String ;
          end case;
       end record;
-
-
-   type Token is access all Token_Interval;
+   
+   type Token is 
+      record
+	 Token_Val : Token_Internal;
+      end record;
 
 end Tokens;
