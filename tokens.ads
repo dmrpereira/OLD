@@ -9,8 +9,7 @@ package Tokens is
        Binary_Tok,
        Hex_Tok,
        String_Tok,
-       Simple_Symb_Tok,
-       Quoted_Symb_Tok,
+       Symb_Tok,
        Keyword_Tok,
        Reserved_Tok );
    -- Kinds of tokens
@@ -20,8 +19,8 @@ package Tokens is
 
    function Make_Numeral(Arg:in Natural) return Token;
    function Make_Decimal(Arg:in Float) return Token;
-   function Make_Binary(Arg:in Natural;Size:in Natural) return Token;
-   function Make_Hex(Arg:in Natural;Size:in Natural) return Token;
+   function Make_Binary(Arg:in Bin_Array;Size:in Array_Limit) return Token;
+   function Make_Hex(Arg:in Hex_Array;Size:in Array_Limit) return Token;
    function Make_Symbol(Arg:in String) return Token;
    function Make_Keyword(Arg:in String) return Token;
    function Make_Reserved(Arg:in String) return Token;
@@ -40,12 +39,15 @@ private
                Numeral_Val : Natural;
             when Decimal_Tok =>
                Decimal_Val : Float ;
-            when Binary_Tok  => 
+            when Binary_Tok  =>
+	       Bin_Array_Size : Array_Limit;
 	       Binary_Val : Bin_Array ;
-            when Hex_Tok => null ;
+            when Hex_Tok => 
+	       Hex_Array_Size : Array_Limit;
+	       Hex_Val : Hex_Array;
             when String_Tok  =>
                String_Val : Unbounded_String ;
-            when Simple_Symb_Tok | Quoted_Symb_Tok =>
+            when Symb_Tok =>
                Symb_Val : Unbounded_String ;
             when Keyword_Tok =>
                Keyword_Val : Unbounded_String ;
