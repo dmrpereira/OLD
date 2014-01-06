@@ -1,4 +1,4 @@
-package body Ast.Ident is
+package body Ast.Idents is
    
    function Build_Ident(N:in String) return Ident is
       I : Ident;
@@ -17,7 +17,7 @@ package body Ast.Ident is
       
    function Image(X:in Ident) return String is
    begin
-      return (X.Ident_Name'Image);
+      return (Image(X.Ident_Name));
    end Image;
    
    function "="(X, Y:in Ident) return Boolean is
@@ -30,4 +30,4 @@ package body Ast.Ident is
       return (X.Ident_Name < Y.Ident_Name);
    end "<";
    
-end Ast.Ident;
+end Ast.Idents;

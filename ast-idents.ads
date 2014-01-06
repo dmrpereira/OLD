@@ -2,9 +2,9 @@ with Ada.Containers.Doubly_Linked_Lists;
 with Util; use Util;
 
 with Ast; use Ast;
-with Ast.Name; use Ast.Name;
+with Ast.Names; use Ast.Names;
 
-package Ast.Ident is
+package Ast.Idents is
    
    ----------------------------
    -- The type of identifiers -
@@ -32,4 +32,4 @@ private
       end record;
 
    
-end Ast.Ident;
+end Ast.Idents;

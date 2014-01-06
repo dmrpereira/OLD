@@ -12,11 +12,7 @@ package Ast is
    function Image(X:in Ast_Abs) return String is abstract;
    function "="(X, Y:in Ast_Abs) return Boolean is abstract;
    function "<"(X, Y:in Ast_Abs) return Boolean is abstract;
-   
-  
-   
-   
-   
+      
 --     -- Logical quantifiers
 --     type Quantifier is new Ast_Abs with null record;
 --     type Forall is new Quantifier with null record;
