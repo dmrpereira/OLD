@@ -4,6 +4,7 @@ package Util is
    
    -- Binary numbers
    subtype Bin_Num is Natural range 0..1;
+   function "="(N1,N2:in Bin_Num) return Boolean;
       
    -- Access to string datatypes   
    type String_Access is access all String;
