@@ -4,6 +4,8 @@ with Ast.Idents; use Ast.Idents;
 with Ast.Quants; use Ast.Quants;
 with Ast.Types; use Ast.Types;
 with Ast.Binders; use Ast.Binders;
+with Ast.Literals; use Ast.Literals;
+with Ast.Exprs; use Ast.Exprs;
 
 procedure Tester is
 begin
