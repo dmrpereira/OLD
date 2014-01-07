@@ -1,0 +1,13 @@
+project Smt_Ada is
+
+	for Languages use ("Ada","C","C++");
+	for Object_Dir use "debug";
+	for Exec_Dir use ".";
+	for Source_Dirs use (".","lang","generic");
+	for Main use ("tester.adb");
+
+	package Compiler is
+		for Default_Switches ("Ada") use ("-gnata","-g");
+	end Compiler;
+	
+end Smt_Ada;

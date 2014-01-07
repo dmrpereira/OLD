@@ -1,0 +1,97 @@
+V "GNAT Lib v2013"
+M P W=b
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK
+
+U tester%b		tester.adb		38a7e296 NE OO SU
+W ast%s			ast.ads			ast.ali
+W ast.binders%s		ast-binders.adb		ast-binders.ali
+W ast.exprs%s		ast-exprs.adb		ast-exprs.ali
+W ast.high_level%s	ast-high_level.ads	ast-high_level.ali
+W ast.idents%s		ast-idents.adb		ast-idents.ali
+W ast.literals%s	ast-literals.adb	ast-literals.ali
+W ast.names%s		ast-names.adb		ast-names.ali
+W ast.quants%s		ast-quants.adb		ast-quants.ali
+W ast.types%s		ast-types.adb		ast-types.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-contai.ads		20130417131019 61e5e089
+D a-cdlili.ads		20130417131018 c3008bbb
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-iteint.ads		20130417131020 7c7305e9
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D a-uncdea.ads		20130417131022 f15a5ed1
+D ast.ads		20140107022340 6a4566c6
+D ast-binders.ads	20140107022620 9cbbd2a6
+D ast-exprs.ads		20140107125831 c53371a1
+D ast-high_level.ads	20140107170101 8a363f86
+D ast-idents.ads	20140106180906 ea7d7274
+D ast-literals.ads	20140107120138 f1fe1c66
+D ast-names.ads		20140106152326 ee3b4775
+D ast-quants.ads	20140106180604 46c16954
+D ast-types.ads		20140107023752 f230ec82
+D system.ads		20130417131036 bd760655
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-string.ads		20130417131032 46b01415
+D s-ststop.ads		20130417131032 ee472be4
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D tester.adb		20140107164901 c015b460
+D util.ads		20140106154413 91873688
+X 8 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[5|67]>
+X 16 ast.ads
+4K9*Ast 308e8 47|1w6 1r15 2r6 2r21 3r6 3r22 4r6 4r22 5r6 5r21 6r6 6r23 7r6
+. 7r24 8r6 8r21 9r6 9r26
+X 17 ast-binders.ads
+5K13*Binders 26e16 47|6w10 6r27
+X 18 ast-exprs.ads
+17K13*Exprs 144e14 47|8w10 8r25
+X 19 ast-high_level.ads
+11K13*High_Level 179e19 47|9w10 9r30
+X 20 ast-idents.ads
+9K13*Idents 48e15 47|3w10 3r26
+X 21 ast-literals.ads
+3K13*Literals 58e17 47|7w10 7r28
+X 22 ast-names.ads
+3K13*Names 30e14 47|2w10 2r25
+X 23 ast-quants.ads
+1K13*Quants 28e15 47|4w10 4r26
+X 24 ast-types.ads
+10K13*Types 51e14 47|5w10 5r25
+X 47 tester.adb
+11U11*Tester 11b11 14l5 14t11
+

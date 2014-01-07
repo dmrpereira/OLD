@@ -1,0 +1,87 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast%s			ast.ads			c453848b EE OO PF PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W util%s		util.ads		util.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D ast.ads		20140107022340 6a4566c6
+D system.ads		20130417131036 bd760655
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 1 ada.ads
+16K9*Ada 19e8 12|2r6 2r33
+X 7 a-string.ads
+16K13*Strings 35e16 12|2r10 2r37
+X 9 a-strunb.ads
+76K21*Unbounded 489e26 12|2w18 2r45
+X 12 ast.ads
+4K9*Ast 308l5 308e8
+9H9*Ast_Abs 9e47 10r27 15p13 15r24 16p14 16r25 17p14 17r25
+10P9*Ast(9R9)
+15y13*Image{string} 15>19
+15r19 X{9R9}
+16y14*"="{boolean} 16>17 16>20
+16r17 X{9R9}
+16r20 Y{9R9}
+17y14*"<"{boolean} 17>17 17>20
+17r17 X{9R9}
+17r20 Y{9R9}
+X 33 util.ads
+3K9*Util 12|1w6 1r16 33|12e9
+

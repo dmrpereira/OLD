@@ -1,0 +1,281 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast.high_level%b	ast-high_level.adb	cda6244e NE OO PK
+W ast%s			ast.ads			ast.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U ast.high_level%s	ast-high_level.ads	52c18881 EE OO PF PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.doubly_linked_lists%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.adb		a-finali.ali
+Z ada.iterator_interfaces%s
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W ast%s			ast.ads			ast.ali
+W ast.binders%s		ast-binders.adb		ast-binders.ali
+W ast.exprs%s		ast-exprs.adb		ast-exprs.ali
+W ast.names%s		ast-names.adb		ast-names.ali
+W ast.types%s		ast-types.adb		ast-types.ali
+W system%s		system.ads		system.ali
+W system.assertions%s	s-assert.adb		s-assert.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-contai.ads		20130417131019 61e5e089
+D a-cdlili.ads		20130417131018 c3008bbb
+D a-cdlili.adb		20130417131018 17cec70d
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-iteint.ads		20130417131020 7c7305e9
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D a-uncdea.ads		20130417131022 f15a5ed1
+D ast.ads		20140107022340 6a4566c6
+D ast-binders.ads	20140107022620 9cbbd2a6
+D ast-exprs.ads		20140107125831 c53371a1
+D ast-high_level.ads	20140107170101 8a363f86
+D ast-high_level.adb	20140107170507 47901bc8
+D ast-idents.ads	20140106180906 ea7d7274
+D ast-literals.ads	20140107120138 f1fe1c66
+D ast-names.ads		20140106152326 ee3b4775
+D ast-quants.ads	20140106180604 46c16954
+D ast-types.ads		20140107023752 f230ec82
+D system.ads		20130417131036 bd760655
+D s-assert.ads		20130417131028 a3a4e6ab
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-string.ads		20130417131032 46b01415
+D s-ststop.ads		20130417131032 ee472be4
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 1 ada.ads
+16K9*Ada 19e8 20|1r6 1r33 2r6 2r26 3r6 130r6 133r6 136r6 139r6
+X 4 a-contai.ads
+16K13*Containers 24e19 20|2w10 2r30 3r10 130r10 133r10 136r10 139r10
+X 5 a-cdlili.ads
+40+9 Element_Type 20|130r41 133r41 136r41 139r41
+42V19 "="{boolean} 20|130r63 133r64 136r65 139r63
+45k24*Doubly_Linked_Lists 381e39 20|3w21 130r21 133r21 136r21 139r21
+49R9*List 20|155r51[129] 159r47[132] 168r39[138]
+X 9 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[5|67]>
+X 11 a-string.ads
+16K13*Strings 35e16 20|1r10 1r37
+X 13 a-strunb.ads
+76K21*Unbounded 489e26 20|1w18 1r45
+79R9*Unbounded_String 473e14 20|110r41 112r45 145r28
+X 17 ast.ads
+4K9*Ast 308e8 20|5w6 5r15 6r6 6r21 7r6 7r21 8r6 8r23 9r6 9r21 11r9 179r5
+. 21|1r14 94r5
+9H9*Ast_Abs 9e47 20|27r42 48r48 79r44 92r42 124r48 141r44
+X 18 ast-binders.ads
+5K13*Binders 26e16 20|8w10 8r27
+10R9*Binder<17|9R9> 23e17 20|136r57
+14V14*"="{boolean}<17|16p13> 20|136r72
+X 19 ast-exprs.ads
+17K13*Exprs 144e14 20|6w10 6r25
+20P9*Expr(19R9) 20|139r57 166r25
+23V14*"="{boolean} 20|139r70
+64R9*Attr<17|9R9> 102e17 20|118r27 149r27
+X 20 ast-high_level.ads
+11K13*High_Level 17|4k9 20|179l9 179e19 21|1b18 94l9 94t19
+13E9*Option_Kind 25e18 27r22 92r22
+14n8*Opt_Print_Success{13E9} 95r18
+15n8*Opt_Expand_Definitions{13E9} 97r18
+16n8*Opt_Interactive_Mode{13E9} 99r18
+17n8*Opt_Produce_Proofs{13E9} 101r18
+18n8*Opt_Produce_Unsat_Cores{13E9} 103r18
+19n8*Opt_Produce_Models{13E9} 105r18
+20n8*Opt_Produce_Assignments{13E9} 107r18
+21n8*Opt_Regular_Output_Channel{13E9} 109r18
+22n8*Opt_Diagonostic_Output_Channel{13E9} 111r18
+23n8*Opt_Random_Seed{13E9} 113r18
+24n8*Opt_Verbosity{13E9} 115r18
+25n8*Opt_Attr{13E9} 117r18
+27R9*Option_Aux<17|9R9> 27d20 28r30 30P13 30r24 31P14 31r25 32P14 32r25 92c9
+. 121e17 21|3r24 8r25 13r25
+27e20*O{13E9} 92r20 94r15
+28P9*Option(27R9) 34r24 35r25 36r25 147r29 21|18r24 23r25 28r25
+30V13*Image{string}<17|15p13> 30>19 21|3b13 6l8 6t13
+30r19 X{27R9} 21|3b19
+31V14*"="{boolean}<17|16p13> 31>17 31>20 21|8b14 11l9 11t11
+31r17 X{27R9} 21|8b17
+31r20 Y{27R9} 21|8b20
+32V14*"<"{boolean}<17|17p13> 32>17 32>20 21|13b14 16l9 16t11
+32r17 X{27R9} 21|13b17
+32r20 Y{27R9} 21|13b20
+34V13*Image{string} 34>19 21|18b13 21l8 21t13
+34p19 X{28P9} 21|18b19
+35V14*"="{boolean} 35>17 35>20 21|23b14 26l9 26t11
+35p17 X{28P9} 21|23b17
+35p20 Y{28P9} 21|23b20
+36V14*"<"{boolean} 36>17 36>20 21|28b14 31l9 31t11
+36p17 X{28P9} 21|28b17
+36p20 Y{28P9} 21|28b20
+38E9*Info_Flag_Kind 46e19 48r25 124r25 126r26
+39n8*Info_All_Statistics{38E9}
+40n8*Info_Error_Behavior{38E9}
+41n8*Info_Name{38E9}
+42n8*Info_Authors{38E9}
+43n8*Info_Version{38E9}
+44n8*Info_Status{38E9}
+45n8*Info_Reason_Unknown{38E9}
+46n8*Info_Attr{38E9}
+48R9*Info_Flag_Aux<17|9R9> 48d23 49r33 51P13 51r24 52P14 52r25 53P14 53r25
+. 124c9 127e17 21|33r24 38r25 43r25
+48e23*I{38E9} 124r23
+49P9*Info_Flag(48R9) 55r24 56r25 57r25 170r27 21|48r24 53r25 58r25
+51V13*Image{string}<17|15p13> 51>19 21|33b13 36l8 36t13
+51r19 X{48R9} 21|33b19
+52V14*"="{boolean}<17|16p13> 52>17 52>20 21|38b14 41l9 41t11
+52r17 X{48R9} 21|38b17
+52r20 Y{48R9} 21|38b20
+53V14*"<"{boolean}<17|17p13> 53>17 53>20 21|43b14 46l9 46t11
+53r17 X{48R9} 21|43b17
+53r20 Y{48R9} 21|43b20
+55V13*Image{string} 55>19 21|48b13 51l8 51t13
+55p19 X{49P9} 21|48b19
+56V14*"="{boolean} 56>17 56>20 21|53b14 56l9 56t11
+56p17 X{49P9} 21|53b17
+56p20 Y{49P9} 21|53b20
+57V14*"<"{boolean} 57>17 57>20 21|58b14 61l9 61t11
+57p17 X{49P9} 21|58b17
+57p20 Y{49P9} 21|58b20
+60E9*Command_Kind 77e18 79r23 141r23
+61n8*Cmd_Set_Logic{60E9} 144r18
+62n8*Cmd_Set_Option{60E9} 146r18
+63n8*Cmd_Set_Info{60E9} 148r18
+64n8*Cmd_Declare_Type{60E9} 150r18
+65n8*Cmd_Define_Type{60E9} 153r18
+66n8*Cmd_Define_Fun{60E9} 157r18
+67n8*Cmd_Push{60E9} 161r18
+68n8*Cmd_Pop{60E9} 163r18
+69n8*Cmd_Assert{60E9} 165r18
+70n8*Cmd_Check_Sat{60E9}
+71n8*Cmd_Get_Assertions{60E9}
+72n8*Cmd_Get_Value{60E9} 167r18
+73n8*Cmd_Get_Proof{60E9}
+74n8*Cmd_Get_Unsat_Core{60E9}
+75n8*Cmd_Get_Info{60E9} 169r18
+76n8*Cmd_Get_Option{60E9} 171r18
+77n8*Cmd_Exit{60E9}
+79R9*Command_Aux<17|9R9> 79d21 80r31 82P13 82r24 83P14 83r25 84P14 84r25
+. 141c9 176e17 21|63r24 68r25 73r25
+79e21*C{60E9} 141r21 143r15
+80P9*Command(79R9) 86r24 87r25 88r25 21|78r24 83r25 88r25
+82V13*Image{string}<17|15p13> 82>19 21|63b13 66l8 66t13
+82r19 X{79R9} 21|63b19
+83V14*"="{boolean}<17|16p13> 83>17 83>20 21|68b14 71l9 71t11
+83r17 X{79R9} 21|68b17
+83r20 Y{79R9} 21|68b20
+84V14*"<"{boolean}<17|17p13> 84>17 84>20 21|73b14 76l9 76t11
+84r17 X{79R9} 21|73b17
+84r20 Y{79R9} 21|73b20
+86V13*Image{string} 86>19 21|78b13 81l8 81t13
+86p19 X{80P9} 21|78b19
+87V14*"="{boolean} 87>17 87>20 21|83b14 86l9 86t11
+87p17 X{80P9} 21|83b17
+87p20 Y{80P9} 21|83b20
+88V14*"<"{boolean} 88>17 88>20 21|88b14 91l9 91t11
+88p17 X{80P9} 21|88b17
+88p20 Y{80P9} 21|88b20
+96b16 Print_Success_Val{boolean}
+98b16 Expand_Definitions{boolean}
+100b16 Interactive_Mode{boolean}
+102b16 Produce_Proofs{boolean}
+104b16 Produce_Unsat_Cores{boolean}
+106b16 Produce_Models{boolean}
+108b16 Produce_Assignments{boolean}
+110r16 Regular_Output_Channel{13|79R9}
+112r16 Diagonostic_Output_Channel{13|79R9}
+114i16 Random_Seed{integer}
+116i16 Verbosity{integer}
+118r16 Attr_val{19|64R9}
+126e10 Info_Flag_Val{38E9}
+129K12 Name_Llist[5|45] 155r40
+132K12 Stype_Llist[5|45] 159r35
+135K12 Binder_Llist[5|45]
+138K12 Expr_Llist[5|45] 168r28
+145r16 Set_Logic{13|79R9}
+147p16 Set_Option{28P9}
+149r16 Set_Info{19|64R9}
+151r16 Declare_Type_Name{24|8R9}
+152i16 Declare_Type_Val{integer}
+154r16 Define_Type_Name{24|8R9}
+155r16 Define_Type_Name_List{5|49R9[129]}
+156p16 Define_Type_Type{26|13P9}
+158r16 Define_Fun_Name{24|8R9}
+159r16 Define_Fun_Types{5|49R9[132]}
+160p16 Define_Fun_Type{26|13P9}
+162i16 Push{integer}
+164i16 Pop{integer}
+166p16 Assert{19|20P9}
+168r16 Get_Value{5|49R9[138]}
+170p16 Get_Info{49P9}
+172r16 Get_Option{24|8R9}
+X 24 ast-names.ads
+3K13*Names 20|9w10 9r25 24|30e14
+8R9*Name<17|9R9> 20|130r57 151r36 154r35 158r34 172r29 24|27e17
+19V14*"="{boolean}<17|16p13> 20|130r70
+X 26 ast-types.ads
+10K13*Types 20|7w10 7r25 26|51e14
+13P9*Stype(12R9) 20|133r57 156r35 160r34
+16V14*"="{boolean} 20|133r71
+

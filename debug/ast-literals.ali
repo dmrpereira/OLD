@@ -1,0 +1,149 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast.literals%b	ast-literals.adb	72f3365f NE OO PK
+W ast%s			ast.ads			ast.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U ast.literals%s	ast-literals.ads	f1fe1c66 EE OO PF PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W system%s		system.ads		system.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D a-uncdea.ads		20130417131022 f15a5ed1
+D ast.ads		20140107022340 6a4566c6
+D ast-literals.ads	20140107120138 f1fe1c66
+D ast-literals.adb	20140107120149 830d2a39
+D system.ads		20130417131036 bd760655
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-string.ads		20130417131032 46b01415
+D s-ststop.ads		20130417131032 ee472be4
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 9 a-strunb.ads
+79R9*Unbounded_String 473e14 14|55r24
+X 13 ast.ads
+4K9*Ast 308e8 14|1w6 1r15 3r9 58r5 15|1r14 78r5
+9H9*Ast_Abs 9e47 14|5r37 35r37
+15y13*Image{string}
+16y14*"="{boolean}
+17y14*"<"{boolean}
+X 14 ast-literals.ads
+3K13*Literals 13|4k9 14|58l9 58e17 15|1b18 78l9 78t17
+5H9*Literal_Aux<13|9R9> 13|15p13 16p14 17p14 14|6r31 12r24 13r25 14r25 15r25
+. 35c9 35e61 37r23 43r24 48r25 53r24
+6P9*Literal(5R9) 8r24 9r25 10r25 15|3r24 8r25 13r25
+8V13*Image{string} 8>19 15|3b13 6l8 6t13
+8p19 X{6P9} 15|3b19
+9V14*"="{boolean} 9>17 9>20 15|8b14 11l9 11t11
+9p17 X{6P9} 15|8b17
+9p20 Y{6P9} 15|8b20
+10V14*"<"{boolean} 10>17 10>20 15|13b14 16l9 16t11
+10p17 X{6P9} 15|13b17
+10p20 Y{6P9} 15|13b20
+12R9*Lit_Bv<5R9> 17P13 17r24 18P14 18r25 19P14 19r25 37c9 41e17 15|18r24
+. 23r25 28r25
+13R9*Lit_Num<5R9> 21P13 21r24 22P14 22r25 23P14 23r25 43c9 46e17 15|33r24
+. 38r25 43r25
+14R9*Lit_Frac<5R9> 25P13 25r24 26P14 26r25 27P14 27r25 48c9 51e17 15|48r24
+. 53r25 58r25
+15R9*Lit_Str<5R9> 29P13 29r24 30P14 30r25 31P14 31r25 53c9 56e17 15|63r24
+. 68r25 73r25
+17V13*Image{string}<13|15p13> 17>19 15|18b13 21l8 21t13
+17r19 X{12R9} 15|18b19
+18V14*"="{boolean}<13|16p13> 18>17 18>20 15|23b14 26l9 26t11
+18r17 X{12R9} 15|23b17
+18r20 Y{12R9} 15|23b20
+19V14*"<"{boolean}<13|17p13> 19>17 19>20 15|28b14 31l9 31t11
+19r17 X{12R9} 15|28b17
+19r20 Y{12R9} 15|28b20
+21V13*Image{string}<13|15p13> 21>19 15|33b13 36l8 36t13
+21r19 X{13R9} 15|33b19
+22V14*"="{boolean}<13|16p13> 22>17 22>20 15|38b14 41l9 41t11
+22r17 X{13R9} 15|38b17
+22r20 Y{13R9} 15|38b20
+23V14*"<"{boolean}<13|17p13> 23>17 23>20 15|43b14 46l9 46t11
+23r17 X{13R9} 15|43b17
+23r20 Y{13R9} 15|43b20
+25V13*Image{string}<13|15p13> 25>19 15|48b13 51l8 51t13
+25r19 X{14R9} 15|48b19
+26V14*"="{boolean}<13|16p13> 26>17 26>20 15|53b14 56l9 56t11
+26r17 X{14R9} 15|53b17
+26r20 Y{14R9} 15|53b20
+27V14*"<"{boolean}<13|17p13> 27>17 27>20 15|58b14 61l9 61t11
+27r17 X{14R9} 15|58b17
+27r20 Y{14R9} 15|58b20
+29V13*Image{string}<13|15p13> 29>19 15|63b13 66l8 66t13
+29r19 X{15R9} 15|63b19
+30V14*"="{boolean}<13|16p13> 30>17 30>20 15|68b14 71l9 71t11
+30r17 X{15R9} 15|68b17
+30r20 Y{15R9} 15|68b20
+31V14*"<"{boolean}<13|17p13> 31>17 31>20 15|73b14 76l9 76t11
+31r17 X{15R9} 15|73b17
+31r20 Y{15R9} 15|73b20
+39i10 Lit_Value{integer}
+40i10 Lit_Width{integer}
+45i10 Lit_Num_Val{integer}
+50f10 Lit_Frac_Val{float}
+55r10 Lit_Str_Val{9|79R9}
+

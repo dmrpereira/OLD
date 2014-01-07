@@ -1,0 +1,178 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast.types%b		ast-types.adb		bf28cc85 NE OO PK
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U ast.types%s		ast-types.ads		6d420962 EE OO PF PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.doubly_linked_lists%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.adb		a-finali.ali
+Z ada.iterator_interfaces%s
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W ast%s			ast.ads			ast.ali
+W ast.idents%s		ast-idents.adb		ast-idents.ali
+W ast.names%s		ast-names.adb		ast-names.ali
+W system%s		system.ads		system.ali
+W system.assertions%s	s-assert.adb		s-assert.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-contai.ads		20130417131019 61e5e089
+D a-cdlili.ads		20130417131018 c3008bbb
+D a-cdlili.adb		20130417131018 17cec70d
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-iteint.ads		20130417131020 7c7305e9
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D a-uncdea.ads		20130417131022 f15a5ed1
+D ast.ads		20140107022340 6a4566c6
+D ast-idents.ads	20140106180906 ea7d7274
+D ast-names.ads		20140106152326 ee3b4775
+D ast-types.ads		20140107023752 f230ec82
+D ast-types.adb		20140107024600 4d182007
+D system.ads		20130417131036 bd760655
+D s-assert.ads		20130417131028 a3a4e6ab
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-string.ads		20130417131032 46b01415
+D s-ststop.ads		20130417131032 ee472be4
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 1 ada.ads
+16K9*Ada 19e8 20|4r6 4r33 5r6 5r26 6r6 7r6 7r20 40r6
+X 4 a-contai.ads
+16K13*Containers 24e19 20|5w10 5r30 6r10 40r10
+X 5 a-cdlili.ads
+40+9 Element_Type 20|40r41
+42V19 "="{boolean} 20|40r64
+45k24*Doubly_Linked_Lists 381e39 20|6w21 40r21
+49R9*List 20|46r28[39] 49r36[39] 21|75r36[20|39]
+61r4*Empty_List{49R9[20|39]} 20|46r36[39]
+X 9 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[5|67]>
+X 11 a-string.ads
+16K13*Strings 35e16 20|4r10 4r37
+X 13 a-strunb.ads
+76K21*Unbounded 489e26 20|4w18 4r45
+X 14 a-tags.ads
+39K13*Tags 581e13 20|7w10 7r24
+X 17 ast.ads
+4K9*Ast 308e8 20|1r6 1r21 2r6 2r22 10r9 51r5 21|1r14 80r5
+9H9*Ast_Abs 9e47 20|12r35 32r35
+15y13*Image{string} 21|5R14
+16y14*"="{boolean}
+17y14*"<"{boolean}
+X 18 ast-idents.ads
+9K13*Idents 48e15 20|2w10 2r26
+14R9*Ident<17|9R9> 45e17 20|45r28
+29V13*Image{string}<17|15p13> 21|61s14
+30V14*"="{boolean}<17|16p13> 21|66s33
+31V14*"<"{boolean}<17|17p13> 21|71s33
+X 19 ast-names.ads
+3K13*Names 30e14 20|1w10 1r25
+8R9*Name<17|9R9> 27e17 20|36r27
+18V13*Image{string}<17|15p13> 21|46s14
+19V14*"="{boolean}<17|16p13> 21|51s32
+20V14*"<"{boolean}<17|17p13> 21|56s32
+X 20 ast-types.ads
+10K13*Types 17|4k9 20|51l9 51e14 21|1b18 80l9 80t14
+12H9*Stype_Ext<17|9R9> 17|15p13 16p14 17p14 20|13r29 19r26 20r26 32c9 32e59
+. 34r26 43r26
+13P9*Stype(12R9) 15r24 16r25 17r25 40r57 21|3r24 8r25 23r25
+15V13*Image{string} 15>19 21|3b13 6l8 6t13
+15p19 X{13P9} 21|3b19 5r20
+16V14*"="{boolean} 16>17 16>20 40r71 21|8b14 21l9 21t11
+16p17 X{13P9} 21|8b17 10r10 11r13 12r31 13r16 14r31
+16p20 Y{13P9} 21|8b20 10r18 12r50 14r50
+17V14*"<"{boolean} 17>17 17>20 21|23b14 42l9 42t11
+17p17 X{13P9} 21|23b17 25r10 29r31 33r13 35r31
+17p20 Y{13P9} 21|23b20 26r13 28r16 29r50 34r13 35r50
+19R9*Stype_Var<12R9> 22P13 22r24 23P14 23r25 24P14 24r25 34c9 37e17 21|11r21
+. 12r21 12r40 25r18 28r24 29r21 29r40 44r24 49r25 54r25
+20R9*Stype_App<12R9> 26P13 26r24 27P14 27r25 28P14 28r25 43c9 47e17 21|13r24
+. 14r21 14r40 26r21 33r21 34r21 35r21 35r40 59r24 64r25 69r25
+22V13*Image{string}<17|15p13> 22>19 21|44b13 47l8 47t13
+22r19 X{19R9} 21|44b19 46r20
+23V14*"="{boolean}<17|16p13> 23>17 23>20 21|12s38 49b14 52l9 52t11
+23r17 X{19R9} 21|49b17 51r15
+23r20 Y{19R9} 21|49b20 51r34
+24V14*"<"{boolean}<17|17p13> 24>17 24>20 21|29s38 54b14 57l9 57t11
+24r17 X{19R9} 21|54b17 56r15
+24r20 Y{19R9} 21|54b20 56r34
+26V13*Image{string}<17|15p13> 26>19 21|59b13 62l8 62t13
+26r19 X{20R9} 21|59b19 61r20
+27V14*"="{boolean}<17|16p13> 27>17 27>20 21|14s38 64b14 67l9 67t11
+27r17 X{20R9} 21|64b17 66r15
+27r20 Y{20R9} 21|64b20 66r35
+28V14*"<"{boolean}<17|17p13> 28>17 28>20 21|35s38 69b14 72l9 72t11
+28r17 X{20R9} 21|69b17 71r15
+28r20 Y{20R9} 21|69b20 71r35
+36r10 Stype_Var_Name{19|8R9} 21|46r22 51r17 51r36 56r17 56r36
+39K12 Types_Args_List[5|45] 41r8
+45r10 Stype_App_Ident{18|14R9} 21|61r22 66r17 66r37 71r17 71r37
+46r10 Stype_App_Args{5|49R9[39]}
+49V13 Image_Of_App_Args{string} 49>31 21|75b13 78l8 78t25
+49r31 L{5|49R9[39]} 21|75b31
+

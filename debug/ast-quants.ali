@@ -1,0 +1,94 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast.quants%b		ast-quants.adb		eafa0b0b NE OO PK
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U ast.quants%s		ast-quants.ads		2c840f92 EE OO PF PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D ast.ads		20140107022340 6a4566c6
+D ast-quants.ads	20140106180604 46c16954
+D ast-quants.adb	20140106180734 ac3b625f
+D interfac.ads		20130417131027 cb4a8015
+D system.ads		20130417131036 bd760655
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 12 ast.ads
+4K9*Ast 308e8 13|1r9 28r5 14|1r14 37r5
+9H9*Ast_Abs 9e47 13|11r22 23r22
+X 13 ast-quants.ads
+1K13*Quants 12|4k9 13|28l9 28e15 14|1b18 37l9 37t15
+6E9*Quant_Kind 6e38 15r41 25r27 14|14r41
+6n24*Forall{6E9} 14|6r33 22r15
+6n31*Exists{6E9} 14|11r33
+11R9*Quant<12|9R9> 13p13 13r33 14p13 14r33 15p13 15r27 17P13 17r24 18P14
+. 18r25 19P14 19r25 23c9 26e17 14|4r33 9r33 14r27 19r24 27r25 32r25
+13V13*Build_Forall{11R9} 14|4b13 7l8 7t20
+14V13*Build_Exists{11R9} 14|9b13 12l8 12t20
+15V13*Get_Kind{6E9} 15>22 14|14b13 17l8 17t16
+15r22 Q{11R9} 14|14b22 16r14
+17V13*Image{string}<12|15p13> 17>19 14|19b13 25l8 25t13
+17r19 X{11R9} 14|19b19 21r12
+18V14*"="{boolean}<12|16p13> 18>17 18>20 14|27b14 30l9 30t11
+18r17 X{11R9} 14|27b17 29r15
+18r20 Y{11R9} 14|27b20 29r34
+19V14*"<"{boolean}<12|17p13> 19>17 19>20 14|32b14 35l9 35t11
+19r17 X{11R9} 14|32b17 34r15
+19r20 Y{11R9} 14|32b20 34r34
+25e10 Quant_Kind_Val{6E9} 14|6m15 11m15 16r16 21r14 29r17 29r36 34r17 34r36
+

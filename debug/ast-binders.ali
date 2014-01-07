@@ -1,0 +1,126 @@
+V "GNAT Lib v2013"
+A -gnatA
+A -gnata
+A -g
+A -mtune=generic
+A -march=pentiumpro
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK
+
+U ast.binders%b		ast-binders.adb		673debe7 NE OO PK
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U ast.binders%s		ast-binders.ads		80b07951 EE OO PF PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ast%s			ast.ads			ast.ali
+W ast.names%s		ast-names.adb		ast-names.ali
+W ast.types%s		ast-types.adb		ast-types.ali
+W system%s		system.ads		system.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-charac.ads		20130417131019 2d3ec45b
+D a-chlat1.ads		20130417131019 2825df20
+D a-contai.ads		20130417131019 61e5e089
+D a-cdlili.ads		20130417131018 c3008bbb
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-iteint.ads		20130417131020 7c7305e9
+D a-stream.ads		20130417131021 2ca4ee37
+D a-string.ads		20130417131021 90ac6797
+D a-strmap.ads		20130417131021 9cb836fb
+D a-strunb.ads		20130417131021 3f91d4c5
+D a-tags.ads		20130417131022 6c0509d0
+D a-unccon.ads		20130417131022 f9eb8f06
+D a-uncdea.ads		20130417131022 f15a5ed1
+D ast.ads		20140107022340 6a4566c6
+D ast-binders.ads	20140107022620 9cbbd2a6
+D ast-binders.adb	20140107023134 fb863941
+D ast-idents.ads	20140106180906 ea7d7274
+D ast-names.ads		20140106152326 ee3b4775
+D ast-types.ads		20140107023752 f230ec82
+D system.ads		20130417131036 bd760655
+D s-atocou.ads		20130417131028 4a9c6cb4
+D s-atocou.adb		20130417131028 c864ec10
+D s-conca3.ads		20130417131029 762a026a
+D s-exctab.ads		20130417131029 66e51330
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-maccod.ads		20130417131030 0fbb7bce
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-secsta.ads		20130417131032 eea35a36
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-stposu.ads		20130417131032 ffeba1c5
+D s-stratt.ads		20130417131032 aedef97e
+D s-string.ads		20130417131032 46b01415
+D s-ststop.ads		20130417131032 ee472be4
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D util.ads		20140106154413 91873688
+X 8 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[5|67]>
+X 16 ast.ads
+4K9*Ast 308e8 17|1w6 1r15 2r6 2r21 3r6 3r21 5r9 26r5 18|1r14 25r5
+9H9*Ast_Abs 9e47 17|10r23 19r23
+X 17 ast-binders.ads
+5K13*Binders 16|4k9 17|26l9 26e16 18|1b18 25l9 25t16
+10R9*Binder<16|9R9> 11r37 13P13 13r24 14P14 14r25 15P14 15r25 19c9 23e17
+. 18|3r24 8r25 13r25
+11P9*Binder_Access(10R9)
+13V13*Image{string}<16|15p13> 13>19 18|3b13 6l8 6t13
+13r19 B{10R9} 18|3b19 5r21 5r49
+14V14*"="{boolean}<16|16p13> 14>17 14>20 18|8b14 11l9 11t11
+14r17 X{10R9} 18|8b17 10r15 10r47
+14r20 Y{10R9} 18|8b20 10r30 10r63
+15V14*"<"{boolean}<16|17p13> 15>17 15>20 18|13b14 22l9 22t11
+15r17 X{10R9} 18|13b17 15r10 17r13 18r18
+15r20 Y{10R9} 18|13b20 15r25 17r28 18r34
+21r10 Binder_Var{20|8R9} 18|5r23 10r17 10r32 15r12 15r27 17r15 17r30
+22p10 Binder_Type{21|13P9} 18|5r51 10r49 10r65 18r20 18r36
+X 20 ast-names.ads
+3K13*Names 17|2w10 2r25 20|30e14
+8R9*Name<16|9R9> 17|21r23 20|27e17
+18V13*Image{string}<16|15p13> 18|5s15
+19V14*"="{boolean}<16|16p13> 18|10s28 17s26
+20V14*"<"{boolean}<16|17p13> 18|15s23
+X 21 ast-types.ads
+10K13*Types 17|3w10 3r25 21|51e14
+13P9*Stype(12R9) 17|22r24
+15V13*Image{string} 18|5s43
+16V14*"="{boolean} 18|10s61
+17V14*"<"{boolean} 18|18s32
+

@@ -1,0 +1,28 @@
+[GENERATED OBJECT FILE]
+b__tester.o
+[PROJECT FILES]
+/home/dpereira/Dropbox/Work/Ada/SmtAda/smt_ada.gpr
+20140107154530
+[BOUND OBJECT FILES]
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/util.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-literals.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-names.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-idents.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-quants.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-types.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-binders.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-exprs.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/ast-high_level.o
+/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/tester.o
+[GENERATED SOURCE FILES]
+b__tester.ads
+b__tester.adb
+b__tester.ali
+[RESULTING OPTIONS]
+-L/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/
+-L/home/dpereira/Dropbox/Work/Ada/SmtAda/debug/
+-L/home/dpereira/bin/gnat/lib/gcc/i686-pc-linux-gnu/4.7.4/adalib/
+-static
+-static-libgcc
+/home/dpereira/bin/gnat/lib/gcc/i686-pc-linux-gnu/4.7.4/adalib/libgnat.a
