@@ -6,6 +6,7 @@ with Ast.Types; use Ast.Types;
 with Ast.Binders; use Ast.Binders;
 with Ast.Literals; use Ast.Literals;
 with Ast.Exprs; use Ast.Exprs;
+with Ast.High_Level; use Ast.High_Level;
 
 procedure Tester is
 begin
