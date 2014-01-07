@@ -1,5 +1,6 @@
 all:
-	gnatmake ast-idents.adb
+	gnatmake tester.adb
 
 clean:
-	gnatclean ast-idents
+	gnatclean tester
+	rm *~

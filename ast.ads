@@ -3,20 +3,20 @@ with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 package Ast is
    
-   ----------------------------------------------
-   -- Parent type represent an abstrat ast-node -
-   ----------------------------------------------
+   -----------------------------------------------
+   -- Parent type represent an abstrat ast-node --
+   -----------------------------------------------
    type Ast_Abs is abstract tagged null record;
    type Ast is access all Ast_Abs'Class;
    
+   --------------------------
+   -- Default sub-programs --
+   --------------------------
    function Image(X:in Ast_Abs) return String is abstract;
    function "="(X, Y:in Ast_Abs) return Boolean is abstract;
    function "<"(X, Y:in Ast_Abs) return Boolean is abstract;
       
---     -- Logical quantifiers
---     type Quantifier is new Ast_Abs with null record;
---     type Forall is new Quantifier with null record;
---     type Exists is new Quantifier with null record;
+
    
 --     -- Logical connectives
 --     type LConn_Kind is (LNot,LImplies,LAnd,LOr,LXor,LIff,LIte);
@@ -69,15 +69,7 @@ package Ast is
 --     type Sort_List is array(Natural range <>) of Sort_Access;
 --     type Sort_List_Access is access all Sort_List;
    
---     -- Completion of type of binders
---     type Binder is new Ast_Abs with
---        record
---  	 Binder_Var : Name;
---  	 Binder_Sort : Sort;
---        end record;
---     type Binder_Access is access all Binder'Class;
---     type Binder_List is array(Natural range <>) of Binder_Access;
---     type Binder_List_Access is access all Binder_List;
+
 
    
 --     -- Terms and logical formulas
