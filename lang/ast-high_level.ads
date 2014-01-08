@@ -29,12 +29,10 @@ package Ast.High_Level is
    
    function Image(X:in Option_Aux) return String;
    function "="(X, Y:in Option_Aux) return Boolean;
-   function "<"(X, Y:in Option_Aux) return Boolean;
-   
+  
    function Image(X:in Option) return String;
    function "="(X, Y:in Option) return Boolean;
-   function "<"(X, Y:in Option) return Boolean;
-   
+ 
    type Info_Flag_Kind is
      ( Info_All_Statistics,
        Info_Error_Behavior,
@@ -50,12 +48,9 @@ package Ast.High_Level is
    
    function Image(X:in Info_Flag_Aux) return String;
    function "="(X, Y:in Info_Flag_Aux) return Boolean;
-   function "<"(X, Y:in Info_Flag_Aux) return Boolean;
-   
+     
    function Image(X:in Info_Flag) return String;
    function "="(X, Y:in Info_Flag) return Boolean;
-   function "<"(X, Y:in Info_Flag) return Boolean;
-      
    
    type Command_Kind is
      ( Cmd_Set_Logic,
@@ -81,12 +76,10 @@ package Ast.High_Level is
    
    function Image(X:in Command_Aux) return String;
    function "="(X, Y:in Command_Aux) return Boolean;
-   function "<"(X, Y:in Command_Aux) return Boolean;
    
    function Image(X:in Command) return String;
    function "="(X, Y:in Command) return Boolean;
-   function "<"(X, Y:in Command) return Boolean;
-
+   
 private
    
    type Option_Aux(O:Option_Kind) is new Ast_Abs with

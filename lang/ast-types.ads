@@ -14,19 +14,16 @@ package Ast.Types is
    
    function Image(X:in Stype) return String;
    function "="(X, Y:in Stype) return Boolean;
-   function "<"(X, Y:in Stype) return Boolean;
    
    type Stype_Var is new Stype_Ext with private;
    type Stype_App is new Stype_Ext with private;
    
    function Image(X:in Stype_Var) return String;
    function "="(X, Y:in Stype_Var) return Boolean;
-   function "<"(X, Y:in Stype_Var) return Boolean;
    
    function Image(X:in Stype_App) return String;
    function "="(X, Y:in Stype_App) return Boolean;
-   function "<"(X, Y:in Stype_App) return Boolean;
-   
+  
 private
    
    type Stype_Ext is abstract new Ast_Abs with null record;

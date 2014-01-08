@@ -50,11 +50,6 @@ package body Ast.Idents is
       return (X.Ident_Name = Y.Ident_Name);
    end "=";
    
-   function "<"(X, Y:in Ident) return Boolean is
-   begin
-      return (X.Ident_Name < Y.Ident_Name);
-   end "<";
-      
    function Idxs_Image(X:in Ident) return String is
       Xs : String := Image(X);
    begin

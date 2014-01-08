@@ -38,42 +38,6 @@ package body Ast.High_Level is
       return False;
    end "=";
      
-   function "<"(X, Y:in Option_Aux) return Boolean is
-   begin
-      if X.O < Y.O then
-	 return True;
-      end if;
-      if X.O = Y.O then
-	 case X.O is
-	    when Opt_Print_Success =>
-	       return (X.Print_Success_Val < Y.Print_Success_Val);
-	    when Opt_Expand_Definitions => 
-	       return (X.Expand_Definitions < Y.Expand_Definitions);
-	    when Opt_Interactive_Mode => 
-	       return (X.Interactive_Mode < Y.Interactive_Mode);
-	    when Opt_Produce_Proofs => 
-	       return (X.Produce_Proofs < Y.Produce_Proofs);
-	    when Opt_Produce_Unsat_Cores => 
-	       return (X.Produce_Unsat_Cores < Y.Produce_Unsat_Cores);
-	    when Opt_Produce_Models => 
-	       return (X.Produce_Models < Y.Produce_Models);
-	    when Opt_Produce_Assignments => 
-	       return (X.Produce_Assignments < Y.Produce_Assignments);
-	    when Opt_Regular_Output_Channel =>
-	       return (X.Regular_Output_Channel < Y.Regular_Output_Channel);
-	    when Opt_Diagonostic_Output_Channel =>
-	       return (X.Diagonostic_Output_Channel < Y.Diagonostic_Output_Channel);
-	    when Opt_Random_Seed => 
-	       return (X.Random_Seed < Y.Random_Seed);
-	    when Opt_Verbosity => 
-	       return (X.Verbosity < Y.Verbosity);
-	    when Opt_Attr => 
-	       return (X.Attr_val < Y.Attr_Val);
-	 end case;
-      end if;
-      return False;
-   end "<";
-   
    function Image(X:in Option) return String is
    begin
       return Image(X.all);
@@ -83,11 +47,6 @@ package body Ast.High_Level is
    begin
       return (X.all = Y.all);
    end "=";
-   
-   function "<"(X, Y:in Option) return Boolean is
-   begin
-      return (X.all < Y.all);
-   end "<";
    
    function Image(X:in Info_Flag_Aux) return String  is
    begin
@@ -99,11 +58,6 @@ package body Ast.High_Level is
       return (X.Info_Flag_Val = Y.Info_Flag_Val);
    end "=";
    
-   function "<"(X, Y:in Info_Flag_Aux) return Boolean is
-   begin
-      return (X.Info_Flag_Val < Y.Info_Flag_Val);
-   end "<";
-   
    function Image(X:in Info_Flag) return String is
    begin
       return "";
@@ -113,11 +67,6 @@ package body Ast.High_Level is
    begin
       return (X.all = Y.all);
    end "=";
-   
-   function "<"(X, Y:in Info_Flag) return Boolean is
-   begin
-      return (X.all < Y.all);
-   end "<";
    
    function Image(X:in Command_Aux) return String is
    begin
@@ -169,11 +118,6 @@ package body Ast.High_Level is
       return False;
    end "=";
    
-   function "<"(X, Y:in Command_Aux) return Boolean is
-   begin
-      return True;
-   end "<";
-   
    function Image(X:in Command) return String is
    begin
       return "";
@@ -181,13 +125,8 @@ package body Ast.High_Level is
    
    function "="(X, Y:in Command) return Boolean is
    begin
-      return True;
+      return (X.all = Y.all);
    end "=";
-   
-   function "<"(X, Y:in Command) return Boolean is
-   begin
-      return True;
-   end "<";
    
    
 end Ast.High_Level;

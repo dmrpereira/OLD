@@ -28,7 +28,6 @@ package Ast.Idents is
    
    function Image(X:in Ident) return String;
    function "="(X, Y:in Ident) return Boolean;
-   function "<"(X, Y:in Ident) return Boolean;
    
    function Idxs_Image(X:in Ident) return String;
    

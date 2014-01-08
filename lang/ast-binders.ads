@@ -12,7 +12,6 @@ package Ast.Binders is
    
    function Image(B:in Binder) return String;
    function "="(X, Y:in Binder) return Boolean;
-   function "<"(X, Y:in Binder) return Boolean;
    
 private 
    

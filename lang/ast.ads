@@ -14,9 +14,6 @@ package Ast is
    --------------------------
    function Image(X:in Ast_Abs) return String is abstract;
    function "="(X, Y:in Ast_Abs) return Boolean is abstract;
-   function "<"(X, Y:in Ast_Abs) return Boolean is abstract;
-      
-
    
 --     -- Logical connectives
 --     type LConn_Kind is (LNot,LImplies,LAnd,LOr,LXor,LIff,LIte);

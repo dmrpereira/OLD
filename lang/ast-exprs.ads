@@ -21,8 +21,7 @@ package Ast.Exprs is
    
    function Image(X:in Expr)  return String;
    function "="(X, Y:in Expr) return Boolean;
-   function "<"(X, Y:in Expr) return Boolean;
-   
+     
    type Elit   is new Expr_Aux with private;
    type Eapp   is new Expr_Aux with private;
    type Equant is new Expr_Aux with private;
@@ -31,24 +30,19 @@ package Ast.Exprs is
    
    function Image(X:in Elit)  return String;
    function "="(X, Y:in Elit) return Boolean;
-   function "<"(X, Y:in Elit) return Boolean;
-   
+ 
    function Image(X:in Eapp)  return String;
    function "="(X, Y:in Eapp) return Boolean;
-   function "<"(X, Y:in Eapp) return Boolean;
-   
+ 
    function Image(X:in Equant)  return String;
    function "="(X, Y:in Equant) return Boolean;
-   function "<"(X, Y:in Equant) return Boolean;
-   
+ 
    function Image(X:in Elet)  return String;
    function "="(X, Y:in Elet) return Boolean;
-   function "<"(X, Y:in Elet) return Boolean;
-   
+ 
    function Image(X:in Eannot)  return String;
    function "="(X, Y:in Eannot) return Boolean;
-   function "<"(X, Y:in Eannot) return Boolean;
-   
+ 
    ---------------------------
    -- Function declarations --
    ---------------------------
@@ -56,8 +50,7 @@ package Ast.Exprs is
    
    function Image(X:in Defn)  return String;
    function "="(X, Y:in Defn) return Boolean;
-   function "<"(X, Y:in Defn) return Boolean;
-   
+  
    ----------------
    -- Attributes --
    ----------------
@@ -65,8 +58,7 @@ package Ast.Exprs is
    
    function Image(X:in Attr)  return String;
    function "="(X, Y:in Attr) return Boolean;
-   function "<"(X, Y:in Attr) return Boolean;
-   
+  
    ----------------------
    -- Attribute values --
    ----------------------
@@ -74,8 +66,7 @@ package Ast.Exprs is
    
    function Image(X:in Attr_Val)  return String;
    function "="(X, Y:in Attr_Val) return Boolean;
-   function "<"(X, Y:in Attr_Val) return Boolean;
-   
+  
 private
    
    package Expr_Llist is new

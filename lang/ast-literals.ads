@@ -7,7 +7,7 @@ package Ast.Literals is
    
    function Image(X:in Literal) return String;
    function "="(X, Y:in Literal) return Boolean;
-   function "<"(X, Y:in Literal) return Boolean;
+
    
    type Lit_Bv  is new Literal_Aux with private;
    type Lit_Num  is new Literal_Aux with private;
@@ -16,20 +16,19 @@ package Ast.Literals is
    
    function Image(X:in Lit_Bv) return String;
    function "="(X, Y:in Lit_Bv) return Boolean;
-   function "<"(X, Y:in Lit_Bv) return Boolean;
+ 
    
    function Image(X:in Lit_Num) return String;
    function "="(X, Y:in Lit_Num) return Boolean;
-   function "<"(X, Y:in Lit_Num) return Boolean;
+
    
    function Image(X:in Lit_Frac) return String;
    function "="(X, Y:in Lit_Frac) return Boolean;
-   function "<"(X, Y:in Lit_Frac) return Boolean;
+ 
    
    function Image(X:in Lit_Str) return String;
    function "="(X, Y:in Lit_Str) return Boolean;
-   function "<"(X, Y:in Lit_Str) return Boolean;
-   
+    
 private
    
    type Literal_Aux is abstract new Ast_Abs with null record;
