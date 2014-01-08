@@ -123,7 +123,7 @@ private
    
    type Info_Flag_Aux(I:Info_Flag_Kind) is new Ast_Abs with 
       record
-	 Info_Flag_Val : Info_Flag_Kind;
+	 Info_Flag_Val : Info_Flag_Kind := I;
       end record;
    
    package Name_Llist is new

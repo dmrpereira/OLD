@@ -1,6 +1,0 @@
-with Ast; use Ast;
-
-package Ast.High_Level is
-   
-   
-end Ast.High_Level;
