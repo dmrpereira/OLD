@@ -1,42 +1,42 @@
 package body Ast.Idents is
    
-   function Build_Ident(N:in String;I:in Natural) return Ident is
+   function Build_Ident(N:in String;I:in List := Empty_List) return Ident is
       Id : Ident;
    begin
       Id.Ident_Name := Build_Name(N);
-      Id.Ident_Idxs.Append(I);
+      Id.Ident_Idxs := I;
       return Id;
    end Build_Ident;
    
-   function Build_Ident(N:in String) return Ident is
-      Id : Ident;
-   begin
-      Id.Ident_Name := Build_Name(N);
-      return Id;
-   end Build_Ident;
+   --  function Build_Ident(N:in String) return Ident is
+   --     Id : Ident;
+   --  begin
+   --     Id.Ident_Name := Build_Name(N);
+   --     return Id;
+   --  end Build_Ident;
    
    function Exists_Ident_Idx(N:in Ident;I:in Natural) return Boolean is
-      C : Cursor;
+      C : Indexes_List.Cursor;
    begin
-      C := Find(N.Ident_Idxs,I);
-      return (C /= No_Element);
+      C := Indexes_List.Find(N.Ident_Idxs,I);
+      return True;--(C /= Indexes_List.No_Element);
    end Exists_Ident_Idx;
    
    procedure Add_Idx(Id:in out Ident;N:in Natural) is
-      C : Cursor;
+      C : Indexes_List.Cursor;
    begin
-      C := Find(Id.Ident_Idxs,N);
-      if C = No_Element then
-	 Append(Id.Ident_Idxs,N);
+      C := Indexes_List.Find(Id.Ident_Idxs,N);
+      if C = Indexes_List.No_Element then
+	 Indexes_List.Append(Id.Ident_Idxs,N);
       end if;
    end Add_Idx;
    
    procedure Rm_Idx(Id:in out Ident;N:in Natural) is
-      C : Cursor;
+      C : Indexes_List.Cursor;
    begin
-      C := Find(Id.Ident_Idxs,N);
-      if C /= No_Element then
-	 Delete(Id.Ident_Idxs,C);
+      C := Indexes_List.Find(Id.Ident_Idxs,N);
+      if C /= Indexes_List.No_Element then
+	 Indexes_List.Delete(Id.Ident_Idxs,C);
       end if;
    end Rm_Idx;
       
@@ -55,13 +55,14 @@ package body Ast.Idents is
    begin
       if Indexes_List.Length(X.Ident_idxs) > 0 then
 	 declare
-	    C : Cursor := First(X.Ident_Idxs);
+	    C : Indexes_List.Cursor := Indexes_List.First(X.Ident_Idxs);
+	    D : constant Indexes_List.Cursor := Indexes_List.Last(X.Ident_Idxs);
 	    S : Unbounded_String := Null_Unbounded_String;
 	 begin
-	    while C /= Last(X.Ident_Idxs) loop
-	       Append(S,Xs&"_"&Element(C)'Img);
-	       C := Next(C);
-	       if C /= Last(X.Ident_Idxs) then
+	    while C /= Indexes_List.Last(X.Ident_Idxs) loop
+	       Append(S,Xs&"_"&Indexes_List.Element(C)'Img);
+	       C := Indexes_List.Next(C);
+	       if C /= D then --Indexes_List.Last(X.Ident_Idxs) then
 		  Append(S,",");
 	       end if;
 	    end loop;

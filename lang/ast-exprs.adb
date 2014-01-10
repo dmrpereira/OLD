@@ -1,5 +1,10 @@
 package body Ast.Exprs is
    
+   function Build_Elit(L:in Literal) return Expr is
+   begin
+      return (new Elit'(Elit_Val => L));
+   end Build_Elit;
+   
    function Image(X:in Expr)  return String is
    begin
       return "";

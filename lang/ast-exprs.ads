@@ -18,22 +18,23 @@ package Ast.Exprs is
    
    type Expr_Aux is abstract new Ast_Abs with private;
    type Expr is access all Expr_Aux'Class;
-   
+     
    function Image(X:in Expr)  return String;
    function "="(X, Y:in Expr) return Boolean;
-     
+   
    type Elit   is new Expr_Aux with private;
    type Eapp   is new Expr_Aux with private;
    type Equant is new Expr_Aux with private;
    type Elet   is new Expr_Aux with private;
    type Eannot is new Expr_Aux with private;
    
+   function Build_Elit(L:in Literal) return Expr;
    function Image(X:in Elit)  return String;
    function "="(X, Y:in Elit) return Boolean;
- 
+   
    function Image(X:in Eapp)  return String;
    function "="(X, Y:in Eapp) return Boolean;
- 
+   
    function Image(X:in Equant)  return String;
    function "="(X, Y:in Equant) return Boolean;
  
@@ -47,10 +48,10 @@ package Ast.Exprs is
    -- Function declarations --
    ---------------------------
    type Defn is new Ast_Abs with private;
-   
+     
    function Image(X:in Defn)  return String;
    function "="(X, Y:in Defn) return Boolean;
-  
+   
    ----------------
    -- Attributes --
    ----------------
@@ -58,7 +59,7 @@ package Ast.Exprs is
    
    function Image(X:in Attr)  return String;
    function "="(X, Y:in Attr) return Boolean;
-  
+   
    ----------------------
    -- Attribute values --
    ----------------------
@@ -66,12 +67,10 @@ package Ast.Exprs is
    
    function Image(X:in Attr_Val)  return String;
    function "="(X, Y:in Attr_Val) return Boolean;
-  
+   
+    
 private
-   
-   package Expr_Llist is new
-     Ada.Containers.Doubly_Linked_Lists(Element_Type => Expr,"=" => "=");
-   
+      
    type Defn is new Ast_Abs with 
       record
 	 Defn_Var : Name;
@@ -95,10 +94,10 @@ private
    package Attr_Llist is new
      Ada.Containers.Doubly_Linked_Lists(Element_Type => Attr,"=" => "=");
    
-   package Binder_Llist is new
-     Ada.Containers.Doubly_Linked_Lists(Element_Type => Binder,"=" => "=");
-   
    type Expr_Aux is abstract new Ast_Abs with null record;
+   
+   package Expr_Llist is new
+     Ada.Containers.Doubly_Linked_Lists(Element_Type => Expr,"=" => "=");
    
    type Elit is new Expr_Aux with 
       record
@@ -115,7 +114,7 @@ private
    type Equant is new Expr_Aux with 
       record
 	 Equant_Quant : Quant;
-	 Equant_Binders : Binder_Llist.List;
+	 Equant_Binders : Binder_Llist;
 	 Equant_Expr : Expr;
       end record;
    
@@ -131,5 +130,6 @@ private
 	 Eannot_Attrs : Attr_Llist.List;
       end record;
    
-     
+   
+       
 end Ast.Exprs;

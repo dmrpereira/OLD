@@ -7,6 +7,8 @@ with Ast.Binders; use Ast.Binders;
 with Ast.Literals; use Ast.Literals;
 with Ast.Exprs; use Ast.Exprs;
 with Ast.High_Level; use Ast.High_Level;
+with Bvs; use Bvs;
+--with Ast_Functions; use Ast_Functions;
 
 procedure Tester is
 begin
