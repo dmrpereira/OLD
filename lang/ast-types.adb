@@ -5,6 +5,21 @@ package body Ast.Types is
       return Image(X.all);
    end Image;
    
+   function Image(X:in Stype_Var) return String is 
+   begin
+      return Image(X.Stype_Var_Name);
+   end Image;
+   
+   function Image(X:in Stype_App) return String is 
+   begin
+      return Image(X.Stype_App_Ident);
+   end Image;
+   
+   function Image(L:in Stype_List) return String is
+   begin
+      return Image_Of_App_Args(L.List_Val);
+   end Image;
+   
    function "="(X, Y:in Stype) return Boolean is
    begin
       if X'Tag = Y'Tag then
@@ -19,32 +34,17 @@ package body Ast.Types is
 	 return False;
       end if;
    end "=";
-   
-   function Image(X:in Stype_Var) return String is 
-   begin
-      return Image(X.Stype_Var_Name);
-   end Image;
-   
+      
    function "="(X, Y:in Stype_Var) return Boolean is
    begin
       return (X.Stype_Var_Name = Y.Stype_Var_Name);
    end "=";
-   
-   function Image(X:in Stype_App) return String is 
-   begin
-      return Image(X.Stype_App_Ident);
-   end Image;
-   
+      
    function "="(X, Y:in Stype_App) return Boolean is 
    begin
       return (X.Stype_App_Ident = Y.Stype_App_Ident);
    end "=";
-   
-   function Image(L:in Stype_List) return String is
-   begin
-      return Image_Of_App_Args(L.List_Val);
-   end Image;
-   
+      
    -- Further implementation required!!!!
    function Image_Of_App_Args(L:in List) return String is
       S : Unbounded_String := Null_Unbounded_String;
