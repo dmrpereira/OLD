@@ -29,6 +29,8 @@ package Ast.Types is
    
    Empty_Stype_List : constant Stype_List;
    
+   --function String_Of_Stype_List(L:in Stype_List) return String;
+   
    --------------------
    -- Kinds of types --
    --------------------

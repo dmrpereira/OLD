@@ -67,7 +67,7 @@ package body Ast.Types is
 	end if;
       end loop;
       Append(S,"]");
-      return "";
+      return To_String(S);
    end Image_Of_App_Args;
    
    function Mk_Stype_Var(S:in String) return Stype is

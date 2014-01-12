@@ -9,8 +9,11 @@ with Ast.Exprs; use Ast.Exprs;
 with Ast.High_Level; use Ast.High_Level;
 with Bvs; use Bvs;
 with Ast_Functions; use Ast_Functions;
+with Commands; use Commands;
 
 procedure Tester is
+   --C : Command;
 begin
+   
    null;
 end Tester;
