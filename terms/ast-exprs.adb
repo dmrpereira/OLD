@@ -8,6 +8,27 @@ package body Ast.Exprs is
       return (new Elit'(Elit_Val => L));
    end Build_Elit;
    
+   function Build_Eapp(I:in Ident;T:in Stype;L:in Expr_List) return Expr is
+   begin
+      return (new Eapp'(Eapp_Ident => I, Eapp_Type => T, Eapp_Expr_List => L));
+   end Build_Eapp;
+   
+   function Build_Equant(Q:in Quant;L:in Binder_List;E:in Expr) return Expr is
+   begin
+      return (new Equant'(Equant_Quant => Q, Equant_Binders => L, Equant_Expr => E));
+   end Build_Equant;
+      
+   function Build_Elet(L:in Defn_List;E:in Expr) return Expr is
+   begin
+      return (new Elet'(Elet_Defn => L, Elet_Expr => E));
+   end Build_Elet;
+   
+   function Build_Eannot(E:in Expr;L:in Attr_List) return Expr is
+   begin
+      return (new Eannot'(Eannot_Expr => E, Eannot_Attrs =>L));
+   end Build_Eannot;
+   
+   
    --------------
    -- Printers --
    --------------
@@ -93,23 +114,39 @@ package body Ast.Exprs is
    end Image;
    
    function Image(X:in Eannot)  return String is
+      function Dump_Attrs_List(L:in Attr_List) return String is
+	 B : Attr;
+	 U : Unbounded_String := Null_Unbounded_String;
+	 M : Attr_List := L;
+      begin
+	 B := Pop(M);
+	 while B /= null loop
+	    Append(U,Image(B));
+	    B := Pop(M);
+	 end loop;
+	 return To_String(U);
+      end Dump_Attrs_List;
    begin
-      return "";
+      if X.Eannot_Attrs = Empty_Attr_List then
+	 return Image(X.Eannot_Expr);
+      else
+	 return ("!" & Image(X.Eannot_Expr) & "(" & Dump_Attrs_List(X.Eannot_Attrs) & ")");
+      end if;
    end Image;
    
    function Image(D:in Defn_Aux) return String is
    begin
-      return "";
+      return ("(" & Image(D.Defn_var) & " " & Image(D.Defn_Expr) & ")");
    end Image;
    
    function Image(X:in Defn)  return String is
    begin
-      return "";
+      return Image(X.all);
    end Image;
    
    function Image(X:in Attr_Aux)  return String is
    begin
-      return "";
+      return (":" & Image(X.Attr_Name) & " " & Image(X.Attr_Attr_Val));
    end Image;
    
    function Image(X:in Attr)  return String is

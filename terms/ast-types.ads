@@ -5,6 +5,7 @@ with Ada.Containers.Doubly_Linked_Lists; use Ada.Containers;
 with Ast.Names; use Ast.Names;
 with Ast.Idents; use Ast.Idents;
 
+
 package Ast.Types is
    
    -----------
@@ -12,6 +13,8 @@ package Ast.Types is
    -----------
    type Stype_Ext is abstract new Ast_Abs with private;
    type Stype is access all Stype_Ext'Class;
+   
+   Undef_Stype : constant Stype;
    
    -------------------
    -- List of types --
@@ -57,6 +60,8 @@ package Ast.Types is
 private
    
    type Stype_Ext is abstract new Ast_Abs with null record;
+   
+   Undef_Stype : constant Stype := null;
    
    package Types_Args_List is new
      Ada.Containers.Doubly_Linked_Lists(Element_Type => Stype,"=" => "=");

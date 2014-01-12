@@ -1,3 +1,22 @@
+------------------------------------------------------------------------------
+--                                                                          --
+-- SMT-Ada : an Ada frontend to SMT provers.                                --
+-- Author : David Pereira                                                   --
+--          Research Associate at CISTER, ISEP, Porto, Portugal             --
+--          dmrpe@isep.ipp.pt                                               --
+--                                                                          --
+-- This is free software;  you can redistribute it  and/or modify it  under --
+-- terms of the  GNU General Public License as published  by the Free Soft- --
+-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+-- sion.  This software is distributed in the hope  that it will be useful, --
+-- but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHAN- --
+-- TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public --
+-- License for  more details.  You should have  received  a copy of the GNU --
+-- General  Public  License  distributed  with  this  software;   see  file --
+-- COPYING3.  If not, go to http://www.gnu.org/licenses for a complete copy --
+-- of the license.                                                          --
+--                                                                          --
+------------------------------------------------------------------------------
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Ada.Containers.Doubly_Linked_Lists; use Ada.Containers;
 with Ada.Tags; use Ada.Tags;
@@ -34,10 +53,33 @@ package Ast.Exprs is
    type Elet   is new Expr_Aux with private;
    type Eannot is new Expr_Aux with private;
    
+   ---------------------------
+   -- Function declarations --
+   ---------------------------
+   type Defn_Aux is new Ast_Abs with private;
+   type Defn is access all Defn_Aux;
+   type Defn_List is private;
+   
+   Empty_Defn_List : constant Defn_List;
+   
+   ----------------
+   -- Attributes --
+   ----------------
+   type Attr_Aux is new Ast_Abs with private;
+   type Attr is access all Attr_Aux;
+   type Attr_List is private;
+   
+   Empty_Attr_List : constant Attr_List;
+   
+   
    ---------------------------------
    -- Constructors of expressions --
    ---------------------------------
    function Build_Elit(L:in Literal) return Expr;
+   function Build_Eapp(I:in Ident;T:in Stype;L:in Expr_List) return Expr;
+   function Build_Equant(Q:in Quant;L:in Binder_List;E:in Expr) return Expr;
+   function Build_Elet(L:in Defn_List;E:in Expr) return Expr;
+   function Build_Eannot(E:in Expr;L:in Attr_List) return Expr;
    
    ---------------------
    -- Pretty printers --
@@ -65,16 +107,7 @@ package Ast.Exprs is
    ---------------------
    procedure Push(L:in out Expr_List;E:in Expr);
    function Pop(L:in out Expr_List) return Expr;
-   
-   ---------------------------
-   -- Function declarations --
-   ---------------------------
-   type Defn_Aux is new Ast_Abs with private;
-   type Defn is access all Defn_Aux;
-   type Defn_List is private;
-   
-   Empty_Defn_List : constant Defn_List;
-   
+      
    --------------
    -- Printers --
    --------------
@@ -92,16 +125,7 @@ package Ast.Exprs is
    ---------------------
    procedure Push(L:in out Defn_List;D:in Defn);
    function Pop(L:in out Defn_List) return Defn;
-   
-   ----------------
-   -- Attributes --
-   ----------------
-   type Attr_Aux is new Ast_Abs with private;
-   type Attr is access all Attr_Aux;
-   type Attr_List is private;
-   
-   Empty_Attr_List : constant Attr_List;
-   
+      
    --------------
    -- Printers --
    --------------
@@ -119,8 +143,7 @@ package Ast.Exprs is
    ---------------------
    procedure Push(L:in out Attr_List;A:in Attr);
    function Pop(L:in out Attr_List) return Attr;
-      
-    
+   
 private
    
    -----------------
