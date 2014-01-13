@@ -1,42 +1,7 @@
 package body Commands is
    
-   function Build_Info_Flag(J:in Info_Flag_Kind;A:Attr := null) return Info_Flag is
-      Iflag : Info_Flag := new Info_Flag_Aux(J);
-   begin
-      case J is
-	 when Info_Attr =>
-	    Iflag.Info_Attr_Val := A;
-	 when others => null;
-      end case;
-      return Iflag;
-   end Build_Info_Flag;
    
-   function String_Of_Info_Flag_Aux(I:in Info_Flag_Aux) return String is   
-   begin
-      case I.I is
-	 when Info_AllStatistics =>
-	    return "all-statistics";
-	 when Info_ErrorBehavior =>
-	    return "error-behavior";
-	 when Info_Name =>
-	    return "name";
-	 when Info_Authors =>
-	    return "authors";
-	 when Info_Version =>
-	    return "versions";
-	 when Info_Status =>
-	    return "status";
-	 when Info_ReasonUnknown =>
-	    return "reason-unkonwn";
-	 when Info_Attr =>
-	    return Image(I.Info_Attr_Val);
-      end case;
-   end String_Of_Info_Flag_Aux;
    
-   function String_Of_Info_Flag(I:in Info_Flag) return String is
-   begin
-      return String_Of_Info_Flag_Aux(I.all);
-   end String_Of_Info_Flag;
    
    function String_Of_Option_Aux(O:in Option_Aux) return String is
    begin
@@ -107,6 +72,22 @@ package body Commands is
       end case;
    end String_Of_Command_Aux;
    
+   function String_Of_Command(C:in Command) return String is
+   begin
+      return String_Of_Command_Aux(C.all);
+   end String_Of_Command;
+   
+   function String_Of_Command_List(L:in Command_List) return String is
+      C : Cursor := First(L.List_Val);
+      U : Unbounded_String := Null_Unbounded_String;
+   begin
+      while C /= Last(L.List_Val) loop
+	 Append(U,String_Of_Command(Element(C)));
+	 C := Next(C);
+      end loop;
+      return To_String(U);
+   end String_Of_Command_List;
+   
    function "="(X,Y:in Command_Aux) return Boolean is
    begin
       if X.C /= Y.C then
@@ -153,6 +134,9 @@ package body Commands is
       end if;
    end "=";
    
+   ------------------------------
+   -- Construction of commands --
+   ------------------------------   
    function Mk_Cmd_Set_Logic(N:in Name) return Command is
       C : Command := new Command_Aux(Cmd_Set_Logic);
    begin

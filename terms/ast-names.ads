@@ -1,6 +1,6 @@
-with Ast; use Ast;
+with Ada.Containers.Doubly_Linked_Lists; 
 
-with Ada.Containers.Doubly_Linked_Lists; use Ada.Containers;
+with Ast; use Ast;
 
 package Ast.Names is
    
@@ -47,6 +47,7 @@ private
 	 Name_Val : Unbounded_String := Null_Unbounded_String;
       end record;
    
+   use Ada.Containers;
    package Name_Llist is new
      Ada.Containers.Doubly_Linked_Lists(Element_Type => Name,"=" => "=");
    use Name_Llist;

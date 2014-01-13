@@ -1,43 +1,26 @@
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Ada.Containers.Doubly_Linked_Lists; use Ada.Containers;
 
-with Ast; use Ast;
-with Ast.Exprs; use Ast.Exprs;
-with Ast.Names; use Ast.Names;
-with Ast.Types; use Ast.Types;
-with Ast.Binders; use Ast.Binders;
+--with Ast; use Ast;
+with Ast.Names, Ast.Types, Ast.Exprs, Ast.Binders, Engine, Engine.Infos, Engine.Options; 
 
-package Commands is
+
+package Engine.Commands is
    
+   use Ast.Names, Ast.Types, Ast.Exprs, Ast.Binders, Engine, Engine.Infos, Engine.Options;
    
+   ------------------------------------------------
+   -- Kinds of supported commands for smt-lib v2 --
+   ------------------------------------------------
+   type Command_Kind is (Cmd_Set_Logic, Cmd_Set_Option, Cmd_Set_Info, Cmd_Declare_Type, Cmd_Define_Type, Cmd_Declare_Fun,
+			 Cmd_Define_Fun, Cmd_Push, Cmd_Pop, Cmd_Assert, Cmd_Check_Sat, Cmd_Get_Assertions, Cmd_Get_Value,
+			 Cmd_Get_Proof, Cmd_Get_Unsat_Core, Cmd_Get_Info, Cmd_Get_Option, Cmd_Exit );
    
-   
-   
-   type Command_Kind is (Cmd_Set_Logic,
-			 Cmd_Set_Option,
-			 Cmd_Set_Info,
-			 Cmd_Declare_Type,
-			 Cmd_Define_Type,
-			 Cmd_Declare_Fun,
-			 Cmd_Define_Fun,
-			 Cmd_Push,
-			 Cmd_Pop,
-			 Cmd_Assert,
-			 Cmd_Check_Sat,
-			 Cmd_Get_Assertions,
-			 Cmd_Get_Value,
-			 Cmd_Get_Proof,
-			 Cmd_Get_Unsat_Core,
-			 Cmd_Get_Info,
-			 Cmd_Get_Option,
-			 Cmd_Exit );
-   
-   type Command_Aux(C:Command_Kind) is private;
+   ---------------------------
+   -- The types of commands --
+   ---------------------------
+   type Command_Aux(C:Command_Kind) is new Instr_Aux with private;
    type Command is access all Command_Aux;
-   
-   type Command_List is private;
-   
-   Empty_Command_List : constant Command_List;
    
    ------------------------------
    -- Constructors of commands --
@@ -61,29 +44,12 @@ package Commands is
    function Mk_Cmd_Get_Option(N:in Name) return Command;
    function Mk_Cmd_Exit return Command;
    
-   function String_Of_Command(C:in Command) return String;
-   function String_Of_Command_List(L:in Command_List) return String;
-      
+   function Image(C:in Command_Aux) return String;
+   function Image(C:in Command) return String;
+   
 private
    
-   type Option_Aux(O:Option_Kind) is 
-      record
-	 case O is
-	    when OptPrintSuccess | OptExpandDefinitions | OptInteractiveMode |
-	      OptProduceProofs | OptProduceUnsatCores | OptProduceModels | OptProduceAssignments => 
-	       Bval : Boolean;
-	    when OptRegularOutputChannel | OptDiagnosticOutputChannel => 
-	       Sval : Unbounded_String;
-	    when OptRandomSeed | OptVerbosity => 
-	       Ival : Integer;
-	    when OptAttr => 
-	       Aval : Attr;
-	 end case;
-      end record;
-   
-   
-   
-   type Command_Aux(C:Command_Kind) is
+   type Command_Aux(C:Command_Kind) is new Instr_Aux with
       record
 	 case C is
 	    when Cmd_Set_Logic =>
@@ -124,18 +90,17 @@ private
 	 end case;
       end record;
    
-   function "="(X,Y:in Command_Aux) return Boolean;
-   function String_Of_Command_Aux(C:in Command_Aux) return String;
    
-   package Command_Llist is new
-     Ada.Containers.Doubly_Linked_Lists(Element_Type => Command,"=" => "=");
-   use Command_Llist;
+   --  package Command_Llist is new
+   --    Ada.Containers.Doubly_Linked_Lists(Element_Type => Command,"=" => "=");
+   --  use Command_Llist;
    
-   type Command_List is 
-      record
-	 List_Val : Command_Llist.List := Command_Llist.Empty_List;
-      end record;
+   --  type Command_List is 
+   --     record
+   --  	 List_Val : Command_Llist.List := Command_Llist.Empty_List;
+   --     end record;
    
-   Empty_Command_List : constant Command_List := (List_Val => Command_Llist.Empty_List);
-      
-end Commands;
+   --  Empty_Command_List : constant Command_List := (List_Val => Command_Llist.Empty_List);
+   
+   
+end Engine.Commands;
