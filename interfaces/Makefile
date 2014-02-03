@@ -13,6 +13,9 @@ all:
 	gcc -c -gnatA -fPIC bridge-z3-numerals.ads
 	gcc -c -gnatA -fPIC bridge-z3-quants.ads
 	gcc -c -gnatA -fPIC bridge-z3-accessors.ads
+	gcc -c -gnatA -fPIC bridge-z3-modifiers.ads
+	gcc -c -gnatA -fPIC bridge-z3-models.ads
+	gcc -c -gnatA -fPIC bridge-z3-logs_and_strings.ads
 	gcc -c -gnatA -fPIC bridge-z3-solvers.ads
 	gcc -c -gnatA -lz3 -fPIC z3_teste.adb
 	gnatbind -n bridge.ali
@@ -29,6 +32,9 @@ all:
 	gnatbind -n bridge-z3-numerals.ali
 	gnatbind -n bridge-z3-quants.ali
 	gnatbind -n bridge-z3-accessors.ali
+	gnatbind -n bridge-z3-modifiers.ali
+	gnatbind -n bridge-z3-models.ali
+	gnatbind -n bridge-z3-logs_and_strings.ali
 	gnatbind -n bridge-z3-solvers.ali
 	gnatbind z3_teste.ali
 #	gnatlink -v z3_teste.ali -L/home/dpereira/Provers/z3/lib -lz3

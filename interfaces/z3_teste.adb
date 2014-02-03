@@ -13,6 +13,9 @@ with Bridge.Z3.Numerals ; use Bridge.Z3.Numerals ;
 with Bridge.Z3.Quants ; use Bridge.Z3.Quants ;
 with Bridge.Z3.Accessors ; use Bridge.Z3.Accessors ;
 with Bridge.Z3.Parameters ; use Bridge.Z3.Parameters;
+with Bridge.Z3.Modifiers; use Bridge.Z3.Modifiers;
+with Bridge.Z3.Models ; use Bridge.Z3.Models ;
+with Bridge.Z3.Logs_And_Strings ; use Bridge.Z3.Logs_And_Strings ;
 
 with Interfaces.C;
 with Interfaces.C.Strings;
