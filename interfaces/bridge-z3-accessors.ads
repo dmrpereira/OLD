@@ -64,164 +64,217 @@ package Bridge.Z3.Accessors is
    -- Return the number of fields of the given tuple sort.    
    function Z3_Get_Tuple_Sort_Num_Fields( C : in Z3_Context ; T : in Z3_Sort ) return Interfaces.C.Unsigned ;
    pragma Import(C,Z3_Get_Tuple_Sort_Num_Fields,"Z3_get_tuple_sort_num_fields") ;
+   
+   -- Return the i-th field declaration (i.e., projection function declaration) of the given tuple sort.    
+   function Z3_Get_Tuple_Sort_Field_Decl(  C : in Z3_Context ; T : in Z3_Sort ; I : in Interfaces.C.Unsigned ) return Z3_Func_Decl ;
+   pragma Import(C,Z3_Get_Tuple_Sort_Field_Decl,"Z3_get_tuple_sort_field_decl") ;
 
-   --   C : in Z3_Context ; S : in Z3_Sort 
---  Z3_func_decl Z3_API 	Z3_get_tuple_sort_field_decl (__in Z3_context c, __in Z3_sort t, __in unsigned i)
---   	Return the i-th field declaration (i.e., projection function declaration) of the given tuple sort. 
---      C : in Z3_Context ; S : in Z3_Sort 
---  unsigned Z3_API 	Z3_get_datatype_sort_num_constructors (__in Z3_context c, __in Z3_sort t)
---   	Return number of constructors for datatype. 
---      C : in Z3_Context ; S : in Z3_Sort 
---  Z3_func_decl Z3_API 	Z3_get_datatype_sort_constructor (__in Z3_context c, __in Z3_sort t, unsigned idx)
---   	Return idx'th constructor. 
+   -- Return number of constructors for datatype. 
+   function Z3_Get_Datatype_Sort_Num_Constructors(  C : in Z3_Context ; S : in Z3_Sort ) return Interfaces.C.Unsigned;
+   pragma Import(C,Z3_Get_Datatype_Sort_Num_Constructors,"Z3_get_datatype_sort_num_constructors") ;
+   
+   -- Return idx'th constructor. 
+   function Z3_Get_Datatype_Sort_Construct( C : in Z3_Context ; T : in Z3_Sort ; Idx : in Interfaces.C.Unsigned ) return Z3_Func_Decl ;
+   pragma Import(C,Z3_Get_Datatype_Sort_Construct,"Z3_get_datatype_sort_constructor") ;
+
+    -- Return idx'th recognizer. 
+   function Z3_Get_Datatype_Sort_Recognizer( C : in Z3_Context ; T : in Z3_Sort ; Idx : in Interfaces.C.Unsigned ) return Z3_Func_Decl ;
+   pragma Import(C,Z3_Get_Datatype_Sort_Recognizer,"Z3_get_datatype_sort_recognizer") ;
+
+   -- Return idx_a'th accessor for the idx_c'th constructor.    
+   function Z3_Get_Datatype_Sort_Constructor_Accessor( C : in Z3_Context ; T : in Z3_Sort ; Idx_C, Idx_A : in Interfaces.C.Unsigned ) Return Z3_Func_Decl ;
+   pragma Import(C,Z3_Get_Datatype_Sort_Constructor_Accessor,"Z3_get_datatype_sort_constructor_accessor") ;
+   
+   -- Return arity of relation. 
+   function Z3_Get_Relation_Arity( C : in Z3_Context ; S : in Z3_Sort ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Relation_Arity,"Z3_get_relation_arity") ;
+
+   -- Return sort at i'th column of relation sort.      
+   function Z3_Get_Relation_Column( C : in Z3_Context ; S : in Z3_sort ; Col : in Interfaces.C.Unsigned ) return Z3_Sort ;
+   pragma Import(C,Z3_Get_Relation_Column,"Z3_get_relation_column") ;
+
+   -- Convert a Z3_func_decl into Z3_ast. This is just type casting.  
+   function Z3_Func_Decl_To_Ast( C : in Z3_Context ; F : in Z3_Func_Decl ) return Z3_Ast ;
+   pragma Import(C,Z3_Func_Decl_To_Ast,"Z3_func_decl_to_ast") ;
+
+   -- compare terms.    
+   function Z3_Is_Eq_Func_Decl( C : in Z3_Context ; F1, F2 : in Z3_Func_Decl ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_Eq_Func_Decl,"Z3_is_eq_func_decl") ;
+
+   -- Return a unique identifier for f.       
+   function Z3_Get_Func_Decl_Id( C : in Z3_Context ; F : in Z3_Func_Decl ) return Interfaces.C.Unsigned;
+   pragma Import(C,Z3_Get_Func_Decl_Id,"Z3_get_func_decl_id") ;
+
+   -- Return the constant declaration name as a symbol.      
+   function Z3_Get_Func_Decl_Name( C : in Z3_Context ; D : in Z3_Func_Decl ) return Z3_Symbol ;
+   pragma Import(C,Z3_Get_Func_Decl_Name,"Z3_get_decl_name") ;
+
+   -- Return declaration kind corresponding to declaration. 	  
+   function Z3_Get_Func_Decl_Kind( C : in Z3_Context ; F : in Z3_Func_Decl ) return Z3_Decl_Kind ;
+   pragma Import(C,Z3_Get_Func_Decl_Kind,"Z3_get_decl_kind") ;
+
+   -- Return the number of parameters of the given declaration.      
+   function Z3_Get_Domain_Size( C : in Z3_Context ; D : in Z3_Func_Decl ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Domain_Size,"Z3_get_domain_size") ; 
+
+   -- Alias for Z3_get_domain_size.      
+   function Z3_Get_Arity( C : in Z3_Context ; D : in Z3_Func_Decl ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Arity,"Z3_get_arity") ;
+
+   -- Return the sort of the i-th parameter of the given function declaration.    
+   function Z3_Get_Domain( C : in Z3_Context ; F : in Z3_Func_Decl ; I : in Interfaces.C.Unsigned ) return Z3_Sort ;
+   pragma Import(C,Z3_Get_Domain,"Z3_get_domain") ;
+
+   -- Return the range of the given declaration.      
+   function Z3_Get_Range( C : in Z3_Context ; F : in Z3_Func_Decl ) return Z3_Sort ;
+   pragma Import(C,Z3_Get_Range,"Z3_get_range") ;
+
+   -- Return the number of parameters associated with a declaration.      
+   function Z3_Get_Decl_Num_Parameters( C : in Z3_Context ; D : in Z3_Func_Decl ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Decl_Num_Parameters,"Z3_get_decl_num_parameters") ;
+
+   -- Return the parameter type associated with a declaration.      
+   function Z3_Get_Decl_Parameter_Kind( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_Parameter_Kind;
+   pragma Import(C,Z3_Get_Decl_Parameter_Kind,"Z3_get_decl_parameter_kind") ;
+
+   -- Return the integer value associated with an integer parameter.      
+   function Z3_Get_Decl_Int_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Interfaces.C.Int ;
+   pragma Import(C,Z3_Get_Decl_Int_Parameter,"Z3_get_decl_int_parameter") ;
+
+   -- Return the double value associated with an double parameter.      
+   function Z3_Get_Decl_Double_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Interfaces.C.Double ;
+   pragma Import(C,Z3_Get_Decl_Double_Parameter,"Z3_get_decl_double_parameter") ;
+
+   -- Return the double value associated with an double parameter.      
+   function Z3_Get_Decl_Symbol_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_Symbol ;
+   pragma Import(C,Z3_Get_Decl_Symbol_Parameter,"Z3_get_decl_symbol_parameter") ;
+
+   -- Return the sort value associated with a sort parameter.    
+   function Z3_Get_Decl_Sort_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_Sort ;
+   pragma Import(C,Z3_Get_Decl_Sort_Parameter,"Z3_get_decl_sort_parameter") ;
+
+   -- Return the expresson value associated with an expression parameter.      
+   function Z3_Get_Decl_Ast_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_Sort ;
+   pragma Import(C,Z3_Get_Decl_Ast_Parameter,"Z3_get_decl_ast_parameter") ;
+   
+   --  	Return the expresson value associated with an expression parameter. 
+   function Z3_Get_Decl_Func_Decl_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_Func_Decl ;
+   pragma Import(C,Z3_Get_Decl_Func_Decl_Parameter,"Z3_get_decl_func_decl_parameter") ;
+   
+   -- Return the rational value, as a string, associated with a rational parameter.    
+   function Z3_Get_Decl_Rational_Parameter( C : in Z3_Context ; D : in Z3_Func_Decl ; Idx : in Interfaces.C.Unsigned ) return Z3_String ;     
+   pragma Import(C,Z3_Get_Decl_Rational_Parameter,"Z3_get_decl_rational_parameter") ;
+
+   -- Convert a Z3_app into Z3_ast. This is just type casting.    
+   function Z3_App_To_Ast( C : in Z3_Context ; A : in Z3_App ) return Z3_Ast ;
+   pragma Import(C,Z3_App_To_Ast,"Z3_app_to_ast") ;
+
+   -- Return the declaration of a constant or function application. 
+   function Z3_Get_App_Decl( C : in Z3_Context ; A : in Z3_App ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_App_Decl,"Z3_get_app_decl") ;
+
+   -- Return the number of argument of an application. If t is an constant, then the number of arguments is 0.  
+   function Z3_Get_App_Num_Args( C : in Z3_Context ; A : in Z3_App ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_App_Num_Args,"Z3_get_app_num_args") ;
+
+   -- Return the i-th argument of the given application.  
+   function Z3_Get_App_Arg( C : in Z3_Context ; A : in Z3_App ; I : in Interfaces.C.Unsigned ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_App_Arg,"Z3_get_app_arg") ;
+
+   -- compare terms.  
+   function Z3_Is_Eq_Ast( C : in Z3_Context ; T1, T2 : in Z3_Ast ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_Eq_Ast,"Z3_is_eq_ast") ;
+
+   -- Return a unique identifier for t.  
+   function Z3_Get_Ast_Id( C : in Z3_Context ; T : in Z3_Ast ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Ast_Id,"Z3_get_ast_id") ;
+
+   -- Return a hash code for the given AST.  
+   function Z3_Get_Ast_Hash( C : in Z3_Context ; A : in Z3_Ast ) return Interfaces.C.Unsigned ;
+   pragma Import(C,Z3_Get_Ast_Hash,"Z3_get_ast_hash") ;
+
+   -- Return the sort of an AST node.  
+   function Z3_Get_Sort( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_Sort,"Z3_get_sort") ;
+
+   -- Return true if the given expression t is well sorted.  
+   function Z3_Is_Well_Sorted( C : in Z3_Context ; T : in Z3_Ast ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_Well_Sorted,"Z3_is_well_sorted") ;
+
+   -- Return Z3_L_TRUE if a is true, Z3_L_FALSE if it is false, and Z3_L_UNDEF otherwise.  
+   function Z3_Get_Bool_Value( C : in Z3_Context ; T : in Z3_Ast ) return Z3_Lbool ;
+   pragma Import(C,Z3_Get_Bool_Value,"Z3_get_bool_value") ;
+
+   -- Return the kind of the given AST.  
+   function Z3_Get_Ast_Kind( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Ast_Kind ;
+   pragma Import(C,Z3_Get_Ast_Kind,"Z3_get_ast_kind") ;
+
+   function Z3_Is_App( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_App,"Z3_is_app") ;
  
---  Z3_func_decl Z3_API 	Z3_get_datatype_sort_recognizer (__in Z3_context c, __in Z3_sort t, unsigned idx)
---   	Return idx'th recognizer. 
+   function Z3_Is_Numeral_Ast( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_Numeral_Ast,"Z3_is_numeral_ast") ;
  
---  Z3_func_decl Z3_API 	Z3_get_datatype_sort_constructor_accessor (__in Z3_context c, __in Z3_sort t, unsigned idx_c, unsigned idx_a)
---   	Return idx_a'th accessor for the idx_c'th constructor. 
+   -- Return true if the give AST is a real algebraic number.    
+   function Z3_Is_Algebraic_Number( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Bool ;
+   pragma Import(C,Z3_Is_Algebraic_Number,"Z3_is_algebraic_number") ;
+
+   -- Convert an ast into an APP_AST. This is just type casting.  
+   function Z3_To_App( C : in Z3_Context ; A : in Z3_Ast ) return Z3_App ;
+   pragma Import(C,Z3_To_App,"Z3_to_app") ;
+
+   -- Convert an AST into a FUNC_DECL_AST. This is just type casting.  
+   function Z3_To_Func_Decl( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Func_Decl ;
+   pragma Import(C,Z3_To_Func_Decl,"Z3_to_func_decl") ;
+
+   -- Return numeral value, as a string of a numeric constant term.  
+   function Z3_Get_Numeral_String( C : in Z3_Context ; A : in Z3_Ast ) return Z3_String ;
+   pragma Import(C,Z3_Get_Numeral_String,"Z3_get_numeral_string") ;
+
+   -- Return numeral as a string in decimal notation. The result has at most precision decimal places.    
+   function Z3_Get_Numeral_Decimal_String( C : in Z3_Context ; A : in Z3_Ast ; Precision : in Interfaces.C.Unsigned ) return Z3_String ;
+   pragma Import(C,Z3_Get_Numeral_Decimal_String,"Z3_get_numeral_decimal_string") ;
+
+   -- Return the numerator (as a numeral AST) of a numeral AST of sort Real. 
+   function Z3_Get_Numerator( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_Numerator,"Z3_get_numerator") ;
+
+   -- Return the denominator (as a numeral AST) of a numeral AST of sort Real. 		   
+   function Z3_Get_Denominator( C : in Z3_Context ; A : in Z3_Ast ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_Denominator,"Z3_get_denominator") ;
+
+   -- Return numeral value, as a pair of 64 bit numbers if the representation fits.  
+   function Z3_Get_Numeral_Small( C : in Z3_Context ; A : in Z3_Ast ; Num, Den : out Int_64_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Small,"Z3_get_numeral_small") ;
+
+   -- Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine int. Return Z3_TRUE if the call succeeded.  
+   function Z3_Get_Numeral_Int( C : in Z3_Context ; A : in Z3_Ast ; I : out Int_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Int,"Z3_get_numeral_int") ;
+
+   -- Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine unsigned int. Return Z3_TRUE if the call succeeded.  
+   function Z3_Get_Numeral_Uint( C : in Z3_Context ; V : in Z3_Ast ; U : out Unsigned_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Uint,"Z3_get_numeral_uint") ;
+
+   -- Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine unsigned __int64 int. Return Z3_TRUE if the call succeeded.  
+   function Z3_Get_Numeral_Uint64( C : in Z3_Context ; V : in Z3_Ast ; U : out Uint_64_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Uint64,"Z3_get_numeral_uint64") ;
+
+   -- Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine __int64 int. Return Z3_TRUE if the call succeeded.  
+   function Z3_Get_Numeral_Int64( C : in Z3_Context ; V : in Z3_Ast ; I : out Int_64_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Int64,"Z3_get_numeral_int64") ;
  
---  unsigned Z3_API 	Z3_get_relation_arity (__in Z3_context c, __in Z3_sort s)
---   	Return arity of relation. 
- 
---  Z3_sort Z3_API 	Z3_get_relation_column (__in Z3_context c, __in Z3_sort s, unsigned col)
---   	Return sort at i'th column of relation sort. 
- 
---  Z3_ast Z3_API 	Z3_func_decl_to_ast (__in Z3_context c, __in Z3_func_decl f)
---   	Convert a Z3_func_decl into Z3_ast. This is just type casting. 
- 
---  Z3_bool Z3_API 	Z3_is_eq_func_decl (__in Z3_context c, __in Z3_func_decl f1, Z3_func_decl f2)
---   	compare terms. 
- 
---  unsigned Z3_API 	Z3_get_func_decl_id (__in Z3_context c, Z3_func_decl f)
---   	Return a unique identifier for f. 
- 
---  Z3_symbol Z3_API 	Z3_get_decl_name (__in Z3_context c, __in Z3_func_decl d)
---   	Return the constant declaration name as a symbol. 
- 
---  Z3_decl_kind Z3_API 	Z3_get_decl_kind (__in Z3_context c, __in Z3_func_decl d)
---   	Return declaration kind corresponding to declaration. 
- 
---  unsigned Z3_API 	Z3_get_domain_size (__in Z3_context c, __in Z3_func_decl d)
---   	Return the number of parameters of the given declaration. 
- 
---  unsigned Z3_API 	Z3_get_arity (__in Z3_context c, __in Z3_func_decl d)
---   	Alias for Z3_get_domain_size. 
- 
---  Z3_sort Z3_API 	Z3_get_domain (__in Z3_context c, __in Z3_func_decl d, __in unsigned i)
---   	Return the sort of the i-th parameter of the given function declaration. 
- 
---  Z3_sort Z3_API 	Z3_get_range (__in Z3_context c, __in Z3_func_decl d)
---   	Return the range of the given declaration. 
- 
---  unsigned Z3_API 	Z3_get_decl_num_parameters (__in Z3_context c, __in Z3_func_decl d)
---   	Return the number of parameters associated with a declaration. 
- 
---  Z3_parameter_kind Z3_API 	Z3_get_decl_parameter_kind (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the parameter type associated with a declaration. 
- 
---  int Z3_API 	Z3_get_decl_int_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the integer value associated with an integer parameter. 
- 
---  double Z3_API 	Z3_get_decl_double_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the double value associated with an double parameter. 
- 
---  Z3_symbol Z3_API 	Z3_get_decl_symbol_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the double value associated with an double parameter. 
- 
---  Z3_sort Z3_API 	Z3_get_decl_sort_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the sort value associated with a sort parameter. 
- 
---  Z3_ast Z3_API 	Z3_get_decl_ast_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the expresson value associated with an expression parameter. 
- 
---  Z3_func_decl Z3_API 	Z3_get_decl_func_decl_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the expresson value associated with an expression parameter. 
- 
---  Z3_string Z3_API 	Z3_get_decl_rational_parameter (__in Z3_context c, __in Z3_func_decl d, unsigned idx)
---   	Return the rational value, as a string, associated with a rational parameter. 
- 
---  Z3_ast Z3_API 	Z3_app_to_ast (__in Z3_context c, __in Z3_app a)
---   	Convert a Z3_app into Z3_ast. This is just type casting. 
- 
---  Z3_func_decl Z3_API 	Z3_get_app_decl (__in Z3_context c, __in Z3_app a)
---   	Return the declaration of a constant or function application. 
- 
---  unsigned Z3_API 	Z3_get_app_num_args (__in Z3_context c, __in Z3_app a)
---   	Return the number of argument of an application. If t is an constant, then the number of arguments is 0. 
- 
---  Z3_ast Z3_API 	Z3_get_app_arg (__in Z3_context c, __in Z3_app a, __in unsigned i)
---   	Return the i-th argument of the given application. 
- 
---  Z3_bool Z3_API 	Z3_is_eq_ast (__in Z3_context c, __in Z3_ast t1, Z3_ast t2)
---   	compare terms. 
- 
---  unsigned Z3_API 	Z3_get_ast_id (__in Z3_context c, Z3_ast t)
---   	Return a unique identifier for t. 
- 
---  unsigned Z3_API 	Z3_get_ast_hash (__in Z3_context c, __in Z3_ast a)
---   	Return a hash code for the given AST. 
- 
---  Z3_sort Z3_API 	Z3_get_sort (__in Z3_context c, __in Z3_ast a)
---   	Return the sort of an AST node. 
- 
---  Z3_bool Z3_API 	Z3_is_well_sorted (__in Z3_context c, __in Z3_ast t)
---   	Return true if the given expression t is well sorted. 
- 
---  Z3_lbool Z3_API 	Z3_get_bool_value (__in Z3_context c, __in Z3_ast a)
---   	Return Z3_L_TRUE if a is true, Z3_L_FALSE if it is false, and Z3_L_UNDEF otherwise. 
- 
---  Z3_ast_kind Z3_API 	Z3_get_ast_kind (__in Z3_context c, __in Z3_ast a)
---   	Return the kind of the given AST. 
- 
---  Z3_bool Z3_API 	Z3_is_app (__in Z3_context c, __in Z3_ast a)
- 
---  Z3_bool Z3_API 	Z3_is_numeral_ast (__in Z3_context c, __in Z3_ast a)
- 
---  Z3_bool Z3_API 	Z3_is_algebraic_number (__in Z3_context c, __in Z3_ast a)
---   	Return true if the give AST is a real algebraic number. 
- 
---  Z3_app Z3_API 	Z3_to_app (__in Z3_context c, __in Z3_ast a)
---   	Convert an ast into an APP_AST. This is just type casting. 
- 
---  Z3_func_decl Z3_API 	Z3_to_func_decl (__in Z3_context c, __in Z3_ast a)
---   	Convert an AST into a FUNC_DECL_AST. This is just type casting. 
- 
---  Z3_string Z3_API 	Z3_get_numeral_string (__in Z3_context c, __in Z3_ast a)
---   	Return numeral value, as a string of a numeric constant term. 
- 
---  Z3_string Z3_API 	Z3_get_numeral_decimal_string (__in Z3_context c, __in Z3_ast a, __in unsigned precision)
---   	Return numeral as a string in decimal notation. The result has at most precision decimal places. 
- 
---  Z3_ast Z3_API 	Z3_get_numerator (__in Z3_context c, __in Z3_ast a)
---   	Return the numerator (as a numeral AST) of a numeral AST of sort Real. 
- 
---  Z3_ast Z3_API 	Z3_get_denominator (__in Z3_context c, __in Z3_ast a)
---   	Return the denominator (as a numeral AST) of a numeral AST of sort Real. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_small (__in Z3_context c, __in Z3_ast a, __out __int64 *num, __out __int64 *den)
---   	Return numeral value, as a pair of 64 bit numbers if the representation fits. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_int (__in Z3_context c, __in Z3_ast v, __out int *i)
---   	Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine int. Return Z3_TRUE if the call succeeded. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_uint (__in Z3_context c, __in Z3_ast v, __out unsigned *u)
---   	Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine unsigned int. Return Z3_TRUE if the call succeeded. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_uint64 (__in Z3_context c, __in Z3_ast v, __out unsigned __int64 *u)
---   	Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine unsigned __int64 int. Return Z3_TRUE if the call succeeded. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_int64 (__in Z3_context c, __in Z3_ast v, __out __int64 *i)
---   	Similar to Z3_get_numeral_string, but only succeeds if the value can fit in a machine __int64 int. Return Z3_TRUE if the call succeeded. 
- 
---  Z3_bool Z3_API 	Z3_get_numeral_rational_int64 (__in Z3_context c, __in Z3_ast v, __out __int64 *num, __out __int64 *den)
---   	Similar to Z3_get_numeral_string, but only succeeds if the value can fit as a rational number as machine __int64 int. Return Z3_TRUE if the call succeeded. 
- 
---  Z3_ast Z3_API 	Z3_get_algebraic_number_lower (__in Z3_context c, __in Z3_ast a, __in unsigned precision)
---   	Return a lower bound for the given real algebraic number. The interval isolating the number is smaller than 1/10^precision. The result is a numeral AST of sort Real. 
- 
---  Z3_ast Z3_API 	Z3_get_algebraic_number_upper (Z3_context c, Z3_ast a, unsigned precision)
---   	Return a upper bound for the given real algebraic number. The interval isolating the number is smaller than 1/10^precision. The result is a numeral AST of sort Real. 
+   -- Similar to Z3_get_numeral_string, but only succeeds if the value can fit as a rational number as machine __int64 int. Return Z3_TRUE if the call succeeded.    
+   function Z3_Get_Numeral_Rational_Int64( C : in Z3_Context ; V : in Z3_Ast ; Num, Den : out Int_64_Access ) return Z3_Bool ;
+   pragma Import(C,Z3_Get_Numeral_Rational_Int64,"Z3_get_numeral_rational_int64") ;
+
+   -- Return a lower bound for the given real algebraic number. The interval isolating the number is smaller than 1/10^precision. The result is a numeral AST of sort Real.  
+   function Z3_Get_Algebraic_Number_Lower( C : in Z3_Context ; A : in Z3_Ast ; Precision : in Interfaces.C.Unsigned ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_Algebraic_Number_Lower,"Z3_get_algebraic_number_lower") ;
+
+   -- Return a upper bound for the given real algebraic number. The interval isolating the number is smaller than 1/10^precision. The result is a numeral AST of sort Real.  
+   function Z3_Get_Algebraic_Number_Upper( C : in Z3_Context ; A : in Z3_Ast ; Precision : in Interfaces.C.Unsigned ) return Z3_Ast ;
+   pragma Import(C,Z3_Get_Algebraic_Number_Upper,"Z3_get_algebraic_number_upper") ;
+
  
 --  Z3_ast Z3_API 	Z3_pattern_to_ast (__in Z3_context c, __in Z3_pattern p)
 --   	Convert a Z3_pattern into Z3_ast. This is just type casting. 

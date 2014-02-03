@@ -1,16 +1,16 @@
 with Ada.Text_Io; use Ada.Text_Io;
 
 --with Commands; use Commands;
-with Engine; use Engine;
+--with Engine; use Engine;
 --with Engine.Infos; use Engine.Infos;
 --with Engine.Options; use Engine.Options;
-with Engine.Commands; use Engine.Commands;
+--with Engine.Commands; use Engine.Commands;
 
 --with Ast; use Ast;
 --with Ast.Idents; use Ast.Idents;
 --with Ast.Quants; use Ast.Quants;
 --with Ast.Types; use Ast.Types;
-with Ast.Names; use Ast.Names;
+--with Ast.Names; use Ast.Names;
 --with Ast.Binders; use Ast.Binders;
 --with Ast.Literals; use Ast.Literals;
 --with Ast.Exprs; use Ast.Exprs;
@@ -23,13 +23,12 @@ with Ast.Names; use Ast.Names;
 
 --with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
+with Front_End; use Front_End;
+
+
 procedure Tester is
-   C : Command := null;
-   
-   subtype Name is Ast.Names.Name;
-   
-   N : Name := null;
+   N : Smt_Name := null;
+   T : Smt_Type := null;
 begin
-   C := Mk_Cmd_Set_Logic(Build_Name("FOL"));
-   Put(Image(C));
+   null;
 end Tester;
