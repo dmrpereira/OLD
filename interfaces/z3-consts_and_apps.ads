@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Consts_And_Apps is
+package Z3.Consts_And_Apps is
    
    --------------------------------
    -- Constants and applications --
@@ -41,4 +41,4 @@ package Bridge.Z3.Consts_And_Apps is
    
    
    
-end Bridge.Z3.Consts_And_Apps ;
+end Z3.Consts_And_Apps ;

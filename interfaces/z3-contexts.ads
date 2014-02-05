@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Contexts is
+package Z3.Contexts is
    
     -- Create context
    function Z3_Mk_Context(C:in Z3_Config) return Z3_Context;
@@ -34,4 +34,4 @@ package Bridge.Z3.Contexts is
    procedure Z3_Interrupt(C:in Z3_Context);
    pragma Import(C,Z3_Interrupt,"Z3_interrupt");
    
-end Bridge.Z3.Contexts;
+end Z3.Contexts;

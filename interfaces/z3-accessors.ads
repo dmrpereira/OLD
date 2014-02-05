@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3.Accessors is
+package Z3.Accessors is
    
    ----------------
    --  Accessors --
@@ -347,7 +347,7 @@ package Bridge.Z3.Accessors is
    function Z3_Simplify_Get_Param_Descrs( C : in Z3_Context ) return Z3_Param_Descrs ;
    pragma Import(C,Z3_Simplify_Get_Param_Descrs,"Z3_simplify_get_param_descrs") ;
    
-end Bridge.Z3.Accessors;
+end Z3.Accessors;
    
    
    

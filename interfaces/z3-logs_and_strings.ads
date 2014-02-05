@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3.Logs_And_Strings is
+package Z3.Logs_And_Strings is
    
    --------------------------
    --  Interaction logging --
@@ -61,4 +61,4 @@ package Bridge.Z3.Logs_And_Strings is
    pragma Import(C,Z3_Benchmark_To_Smtlib_String,"Z3_benchmark_to_smtlib_string"); 
    
    
-end Bridge.Z3.Logs_And_Strings ;
+end Z3.Logs_And_Strings ;

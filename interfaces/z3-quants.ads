@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3.Quants is
+package Z3.Quants is
    
    ------------------
    --  Quantifiers --
@@ -118,4 +118,4 @@ package Bridge.Z3.Quants is
  
    
    
-end Bridge.Z3.Quants ;
+end Z3.Quants ;

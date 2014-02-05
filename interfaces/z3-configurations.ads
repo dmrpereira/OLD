@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Configurations is
+package Z3.Configurations is
    
    --------------------
    -- Configurations --
@@ -20,4 +20,4 @@ package Bridge.Z3.Configurations is
    pragma Import(C,Z3_Set_Param_Value,"Z3_set_param_value");
    
    
-end Bridge.Z3.Configurations;
+end Z3.Configurations;

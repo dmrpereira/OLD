@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Arrays_And_Sets is
+package Z3.Arrays_And_Sets is
    
    ------------
    -- Arrays --
@@ -76,4 +76,4 @@ package Bridge.Z3.Arrays_And_Sets is
    function Z3_Mk_Set_Subset( C : in Z3_Context ; Arg1, Arg2 : in Z3_Ast ) return Z3_Ast ;
    pragma Import(C,Z3_Mk_Set_Subset,"Z3_mk_set_subset");
 
-end Bridge.Z3.Arrays_And_Sets;
+end Z3.Arrays_And_Sets;

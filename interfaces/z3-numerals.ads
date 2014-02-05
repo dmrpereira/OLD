@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3.Numerals is
+package Z3.Numerals is
    
    --------------
    -- Numerals --
@@ -32,7 +32,7 @@ package Bridge.Z3.Numerals is
    function Z3_Mk_Unsigned_Int64( C : in Z3_Context ; V : in Interfaces.C.Unsigned_Long ; Ty : in Z3_Sort ) return Z3_Ast ;
    pragma Import(C,Z3_Mk_Unsigned_Int64,"Z3_mk_unsigned_int64") ;
      
-end Bridge.Z3.Numerals ;
+end Z3.Numerals ;
  
 
 

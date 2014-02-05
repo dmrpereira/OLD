@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3 is
+package Z3 is
    
    pragma Preelaborate;
    
@@ -23,6 +23,8 @@ package Bridge.Z3 is
    -- Abstract syntax tree node. 
    -- That is, the data-structure used in Z3 to represent terms, formulas and types.
    type Z3_Ast is new System.Address;
+   
+   type Z3_Ast_Access is access all Z3_Ast ;
    
    subtype Z3_Ast_Opt is Z3_Ast;
    
@@ -617,6 +619,8 @@ package Bridge.Z3 is
       Z3_INVALID_USAGE,
       Z3_DEC_REF_ERROR,
       Z3_EXCEPTION);
+   for Z3_Error_Code'Size use Interfaces.C.Int'Size ;
+     
    pragma Convention (C, Z3_error_code); 
    
    
@@ -663,9 +667,6 @@ package Bridge.Z3 is
    
    type Uint_64_Access is access all Uint_64 ;
    
-   
-   
-   
    ---------------------
    --  Error Handling --
    ---------------------
@@ -674,8 +675,9 @@ package Bridge.Z3 is
    function Z3_Get_Error_Code( C : in Z3_Context ) return Z3_Error_Code;
    pragma Import(C,Z3_Get_Error_Code,"Z3_get_error_code");
    
-   type Z3_Error_Handler is access procedure( C : in Z3_Context ; E : Z3_Error_Code );
-   pragma Convention(C,Z3_Error_Handler);
+   -- The type of error handlers for callback errors
+   type Z3_Error_Handler is access procedure( C : in Z3_Context ; E : in Z3_Error_Code );
+   -- pragma Convention(C,Z3_Error_Handler);
    
    -- Register a Z3 error handler.    
    procedure Z3_Set_Error_Handler( C : in Z3_Context ; H : in Z3_Error_Handler );
@@ -778,5 +780,5 @@ package Bridge.Z3 is
    pragma Import(C,Z3_Goal_To_String,"Z3_goal_to_string");
    
    
-end Bridge.Z3;
+end Z3;
 

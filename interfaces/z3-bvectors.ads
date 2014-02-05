@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Bvectors is
+package Z3.Bvectors is
    
    -----------------
    -- Bit-vectors --
@@ -204,5 +204,5 @@ package Bridge.Z3.Bvectors is
    
    
    
-end Bridge.Z3.Bvectors;
+end Z3.Bvectors;
 

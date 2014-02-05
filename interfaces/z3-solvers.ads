@@ -3,7 +3,7 @@ with System;
 
 --with Bridge.Z3; use Bridge; use Bridge.Z3;
 
-package Bridge.Z3.Solvers is
+package Z3.Solvers is
    
    -------------
    -- Solvers --
@@ -117,4 +117,4 @@ package Bridge.Z3.Solvers is
 
    
    
-end Bridge.Z3.Solvers;
+end Z3.Solvers;

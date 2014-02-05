@@ -2,7 +2,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with Ada.Unchecked_Conversion;
 with System;
 
-package Bridge.Z3.Modifiers is
+package Z3.Modifiers is
 
    ----------------
    --  Modifiers --
@@ -28,4 +28,4 @@ package Bridge.Z3.Modifiers is
    function Z3_Translate( Source : in Z3_Context ; A : in Z3_Ast ; Target : in Z3_Context ) return Z3_Ast ;
    pragma Import(C,Z3_Translate,"Z3_translate") ;
    
-end Bridge.Z3.Modifiers ;
+end Z3.Modifiers ;

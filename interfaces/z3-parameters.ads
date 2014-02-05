@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Parameters is
+package Z3.Parameters is
    
     -- Create a Z3 (empty) parameter set.
    function Z3_Mk_Params(C:in Z3_Context) return Z3_Params;
@@ -62,4 +62,4 @@ package Bridge.Z3.Parameters is
    pragma Import(C,Z3_Param_Descrs_To_String,"Z3_param_descrs_to_string");
    
    
-end Bridge.Z3.Parameters;
+end Z3.Parameters;

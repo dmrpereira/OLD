@@ -6,7 +6,7 @@ with Interfaces.C, Interfaces.C.Strings;
 with System;
 
 
-package Bridge.Z3.Arith is
+package Z3.Arith is
    
    -- Create an AST node representing args[0] + ... + args[num_args-1].
    -- The array args must have num_args elements. 
@@ -77,4 +77,4 @@ package Bridge.Z3.Arith is
    pragma Import(C,Z3_Mk_Is_Int,"Z3_mk_is_int");
    
    
-end Bridge.Z3.Arith ;
+end Z3.Arith ;

@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Logic_And_Equal is
+package Z3.Logic_And_Equal is
    
    -- Create an AST node representing \c true.
    function Z3_Mk_True(C:in Z3_Context) return Z3_Ast;
@@ -53,4 +53,4 @@ package Bridge.Z3.Logic_And_Equal is
    pragma Import(C,Z3_Mk_Or,"Z3_mk_or");
    
    
-end Bridge.Z3.Logic_And_Equal ;
+end Z3.Logic_And_Equal ;

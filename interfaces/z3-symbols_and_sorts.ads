@@ -1,7 +1,7 @@
 with Interfaces.C, Interfaces.C.Strings;
 with System;
 
-package Bridge.Z3.Symbols_And_Sorts is
+package Z3.Symbols_And_Sorts is
    
       -- Create a Z3 symbol using an integer
    function Z3_Mk_Int_Symbol(C:in Z3_Context;I:in Interfaces.C.Int) return Z3_Symbol;
@@ -122,4 +122,4 @@ package Bridge.Z3.Symbols_And_Sorts is
    pragma Import(C,Z3_Query_Constructor,"Z3_query_constructor");
    
    
-end Bridge.Z3.Symbols_And_Sorts;
+end Z3.Symbols_And_Sorts;
