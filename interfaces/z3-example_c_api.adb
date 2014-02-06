@@ -234,7 +234,7 @@ package body Z3.Example_C_Api is
       
       Finv_Domain := Z3_Get_Range(Ctx,F);
       Finv_Range := Z3_Get_Domain(Ctx,F,I);
-      Finv := Z3_Mk_Fresh_Func_Decl(Ctx,String_To_Z3_String("inv"),1,Finv_Domain,Finv_Range);
+      -- Finv := Z3_Mk_Fresh_Func_Decl(Ctx,String_To_Z3_String("inv"),1,Finv_Domain,Finv_Range);
       
    end Assert_Inj_Axiom ;
 --  void assert_inj_axiom(Z3_context ctx, Z3_func_decl f, unsigned i) 

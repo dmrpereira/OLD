@@ -1,4 +1,7 @@
+SO := $(shell uname)
+
 all:
+	@echo "Compiling bindings..."
 	gcc -c -gnatA -fPIC z3.ads
 	gcc -c -gnatA -fPIC z3-utils.adb
 	gcc -c -gnatA -fPIC z3-configurations.ads
@@ -19,7 +22,9 @@ all:
 	gcc -c -gnatA -fPIC z3-solvers.ads
 	gcc -c -gnatA -fPIC z3-deprecated.ads
 	gcc -c -gnatA -fPIC z3-example_c_api.adb
-	gcc -c -gnatA -lz3 -fPIC z3_teste.adb
+	gcc -c -gnatA -lgmp -fPIC yices.ads
+	gcc -c -gnatA -lz3 -fPIC teste.adb
+
 	gnatbind -n z3.ali
 	gnatbind -n z3-utils.ali
 	gnatbind -n z3-configurations.ali
@@ -40,11 +45,14 @@ all:
 	gnatbind -n z3-solvers.ali
 	gnatbind -n z3-deprecated.ali
 	gnatbind -n z3-example_c_api.ali
-	gnatbind z3_teste.ali
-#	gnatlink -v z3_teste.ali -L/home/dpereira/Provers/z3/lib -lz3
-	gnatlink -v z3_teste.ali -L/Users/dpereira/Provers/lib -lz3
-	install_name_tool -change libz3.dylib /Users/dpereira/Provers/lib/libz3.dylib z3_teste
+	gnatbind -n yices.ali
+	gnatbind teste.ali
+#	gnatlink -v teste.ali -L/home/dpereira/Provers/z3/lib -L/home/dpereira/Provers/yices1/lib -lz3 -lyices
+	gnatlink -v -mdynamic-no-pic teste.ali -L/Users/dpereira/Provers/lib -lz3 -L/Users/dpereira/Provers/yices1/lib -lyices -lgmp -lstdc++
+	install_name_tool -change libz3.dylib /Users/dpereira/Provers/lib/libz3.dylib teste
+#	install_name_tool -change libyices.a /Users/dpereira/Provers/yices1/lib/libyices.a teste
+#endif
 
 clean:
-	gnatclean *.ads z3_teste 
-	rm b~*
+	gnatclean *.ads teste 
+	rm -f b~* *~
