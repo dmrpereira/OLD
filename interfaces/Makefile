@@ -24,7 +24,7 @@ all:
 	gcc -c -gnatA -fPIC z3-example_c_api.adb
 	gcc -c -gnatA -lgmp -fPIC yices.ads
 	gcc -c -gnatA -lz3 -fPIC teste.adb
-
+	gcc -c -gnatA -lgmp -lyices -lstdc++ yices_teste.adb
 	gnatbind -n z3.ali
 	gnatbind -n z3-utils.ali
 	gnatbind -n z3-configurations.ali
@@ -46,13 +46,15 @@ all:
 	gnatbind -n z3-deprecated.ali
 	gnatbind -n z3-example_c_api.ali
 	gnatbind -n yices.ali
+	gnatbind yices_teste.ali
 	gnatbind teste.ali
 #	gnatlink -v teste.ali -L/home/dpereira/Provers/z3/lib -L/home/dpereira/Provers/yices1/lib -lz3 -lyices
 	gnatlink -v -mdynamic-no-pic teste.ali -L/Users/dpereira/Provers/lib -lz3 -L/Users/dpereira/Provers/yices1/lib -lyices -lgmp -lstdc++
 	install_name_tool -change libz3.dylib /Users/dpereira/Provers/lib/libz3.dylib teste
+	gnatlink -v -mdynamic-no-pic yices_teste.ali -L/Users/dpereira/Provers/yices1/lib -lyices -lgmp -lstdc++
 #	install_name_tool -change libyices.a /Users/dpereira/Provers/yices1/lib/libyices.a teste
 #endif
 
 clean:
-	gnatclean *.ads teste 
+	gnatclean *.ads teste yices_teste
 	rm -f b~* *~
