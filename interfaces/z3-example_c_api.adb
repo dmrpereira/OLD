@@ -215,54 +215,53 @@ package body Z3.Example_C_Api is
    -- \endcode
    -- Where, finv is a fresh function declaration.
    procedure Assert_Inj_Axiom( Ctx : in Z3_Context ; F : in Z3_Func_Decl ; I : in Interfaces.C.Unsigned ) is
-     Sz, J : Interfaces.C.Unsigned ;
-     Finv_Domain : Z3_Sort ;
+     Sz : Interfaces.C.Unsigned := Z3_Get_Domain_Size(Ctx,F) ;
+     Finv_Domain : Z3_Sort_Array(0..1) ;
      Finv_Range : Z3_Sort; --_Array(0..100) ;
      Finv : Z3_Func_Decl ;
-     Types : access Z3_Sort := null ;
-     Names : access Z3_Symbol := null ;
-     Xs : access Z3_Ast := null ;
+     Types : access Z3_Sort_Array := null ;
+     Names : access Z3_Symbol_Array := null ;
+     Xs : access Z3_Ast_Array := null ;
      X_I, Fxs, Finv_Fxs, Eq : Z3_Ast ;
      P : Z3_Pattern;
      Q : Z3_Ast ;
    begin
-      Sz := Z3_Get_Domain_Size(Ctx,F);
       
       if Integer(I) >= Integer(Sz) then
 	 Exit_F("failed to create inj axiom");
       end if;
       
-      Finv_Domain := Z3_Get_Range(Ctx,F);
+      Finv_Domain(0) := Z3_Get_Range(Ctx,F);
       Finv_Range := Z3_Get_Domain(Ctx,F,I);
-      -- Finv := Z3_Mk_Fresh_Func_Decl(Ctx,String_To_Z3_String("inv"),1,Finv_Domain,Finv_Range);
+      Finv := Z3_Mk_Fresh_Func_Decl(Ctx,String_To_Z3_String("inv"),1,Finv_Domain,Finv_Range);
+      
+      -- allocate temporary arrays 
+      Types := new Z3_Sort_Array( 0 .. Integer(Sz) ) ;
+      Names := new Z3_Symbol_Array( 0 .. Integer(Sz) ) ;
+      Xs := new Z3_Ast_Array( 0 .. Integer(Sz) ) ;
+      
+      -- fill types, names and xs
+      for J in Integer range 0 .. Integer(Sz) loop
+	 Types(J) := Z3_Get_Domain(Ctx,F,Interfaces.C.Unsigned(J)) ;
+	 Names(J) := Z3_Mk_Int_Symbol(Ctx,Interfaces.C.Int(J)) ;
+	 Xs(J) := Z3_Mk_Bound(Ctx,Interfaces.C.Unsigned(J),Types(J)) ;
+      end loop ;
+      
+      X_I := Xs(Integer(I)) ;
+      
+      -- create f(x_0, ..., x_i, ..., x_{n-1})
+      Fxs := Z3_Mk_App(Ctx,F,Sz,Xs.all) ;
+      
+      -- create f_inv(f(x_0, ..., x_i, ..., x_{n-1}))
+      Finv_Fxs := Mk_Unary_App(Ctx,Finv,Fxs);
+      
+      -- create finv(f(x_0, ..., x_i, ..., x_{n-1})) = x_i
+      Eq := Z3_Mk_Eq(Ctx,Finv_Fxs,X_I) ;
+      
+      -- P := Z3_Mk_Pattern(Ctx,1,Fxs) ;
       
    end Assert_Inj_Axiom ;
---  void assert_inj_axiom(Z3_context ctx, Z3_func_decl f, unsigned i) 
---  {
---     unsigned sz, j;
---     Z3_sort finv_domain, finv_range;
---     Z3_func_decl finv;
---     Z3_sort * types; /* types of the quantified variables */
---     Z3_symbol *   names; /* names of the quantified variables */
---     Z3_ast * xs;         /* arguments for the application f(x_0, ..., x_i, ..., x_{n-1}) */
---     Z3_ast   x_i, fxs, finv_fxs, eq;
---     Z3_pattern p;
---     Z3_ast   q;
---     sz = Z3_get_domain_size(ctx, f);
 
---     if (i >= sz) {
---         exitf("failed to create inj axiom");
---     }
-   
---     /* declare the i-th inverse of f: finv */
---     finv_domain = Z3_get_range(ctx, f);
---     finv_range  = Z3_get_domain(ctx, f, i);
---     finv        = Z3_mk_fresh_func_decl(ctx, "inv", 1, &finv_domain, finv_range);
-
---     /* allocate temporary arrays */
---     types       = (Z3_sort *) malloc(sizeof(Z3_sort) * sz);
---     names       = (Z3_symbol *) malloc(sizeof(Z3_symbol) * sz);
---     xs          = (Z3_ast *) malloc(sizeof(Z3_ast) * sz);
    
 --     /* fill types, names and xs */
 --     for (j = 0; j < sz; j++) { types[j] = Z3_get_domain(ctx, f, j); };

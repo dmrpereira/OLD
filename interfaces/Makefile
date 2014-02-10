@@ -52,6 +52,8 @@ all:
 	gnatlink -v -mdynamic-no-pic teste.ali -L/Users/dpereira/Provers/lib -lz3 -L/Users/dpereira/Provers/yices1/lib -lyices -lgmp -lstdc++
 	install_name_tool -change libz3.dylib /Users/dpereira/Provers/lib/libz3.dylib teste
 	gnatlink -v -mdynamic-no-pic yices_teste.ali -L/Users/dpereira/Provers/yices1/lib -lyices -lgmp -lstdc++
+	gnatmake bridge-z3.adb
+	gnatmake bridge-yices.adb
 #	install_name_tool -change libyices.a /Users/dpereira/Provers/yices1/lib/libyices.a teste
 #endif
 

@@ -673,7 +673,6 @@ package Z3 is
    
    -- Return the error code for the last API call. 
    function Z3_Get_Error_Code( C : in Z3_Context ) return Z3_Error_Code;
-   pragma Import(C,Z3_Get_Error_Code,"Z3_get_error_code");
    
    -- The type of error handlers for callback errors
    type Z3_Error_Handler is access procedure( C : in Z3_Context ; E : in Z3_Error_Code );
@@ -681,37 +680,29 @@ package Z3 is
    
    -- Register a Z3 error handler.    
    procedure Z3_Set_Error_Handler( C : in Z3_Context ; H : in Z3_Error_Handler );
-   pragma Import(C,Z3_Set_Error_Handler,"Z3_set_error_handler");
    
    -- Set an error.    
    procedure Z3_Set_Error( C : in Z3_Context ; E : in Z3_Error_Code);
-   pragma Import(C,Z3_Set_Error,"Z3_set_error");
    
    -- Return a string describing the given error code.    
    function Z3_Get_Error_Msg( Err : in Z3_Error_Code) return Z3_String;
-   pragma Import(C,Z3_Get_Error_Msg, "Z3_get_error_msg");
 
    -- Return a string describing the given error code. 
    procedure Z3_Get_Error_Msg_Ex( C : in Z3_Context ; Err : in Z3_Error_Code );
-   pragma Import(C,Z3_Get_Error_Msg_Ex,"Z3_get_error_msg_ex");
  
    --  Miscellaneous
    
    -- Return Z3 version number information. 
    procedure Z3_Get_Version( Major, Minor, Build_Numer, Revision_Number : out Interfaces.C.Unsigned);
-   pragma Import(C,Z3_Get_Version,"Z3_get_version");
    
    -- Enable tracing messages tagged as tag when Z3 is compiled in debug mode. It is a NOOP otherwise. 
    procedure Z3_Enable_Trace( Tag : in Z3_String );
-   pragma Import(C,Z3_Enable_Trace,"Z3_enable_trace");
  
    -- Disable tracing messages tagged as tag when Z3 is compiled in debug mode. It is a NOOP otherwise. 
    procedure Z3_Disable_Trace( Tag : in Z3_String );
-   pragma Import(C,Z3_Disable_Trace,"Z3_disable_trace");
    
    -- Reset all allocated resources.    
    procedure Z3_Reset_Memory;
-   pragma Import(C,Z3_Reset_Memory,"Z3_reset_memory");
 
    -----------
    -- Goals --
@@ -719,66 +710,77 @@ package Z3 is
    
    -- Create a goal (aka problem). A goal is essentially a set of formulas, that can be solved and/or transformed using tactics and solvers. 
    function Z3_Mk_Goal( C : in Z3_Context ; Models : in Z3_Bool ; Unsar_Cores : in Z3_Bool ; Proofs : in Z3_Bool ) return Z3_Goal;
-   pragma Import(C,Z3_Mk_Goal,"Z3_mk_goal");
    
    -- Increment the reference counter of the given goal. 
    procedure Z3_Goal_Inc_Ref( C : in Z3_Context ; G : in Z3_Goal );
-   pragma Import(C,Z3_Goal_Inc_Ref,"Z3_goal_inc_ref");
    
    -- Decrement the reference counter of the given goal.    
    procedure Z3_Goal_Dec_Ref( C : in Z3_Context ; G : in Z3_Goal );
-   pragma Import(C,Z3_Goal_Dec_Ref,"Z3_goal_dec_ref");
 
    -- Return the "precision" of the given goal. Goals can be transformed using over and under approximations. 
    -- A under approximation is applied when the objective is to find a model for a given goal. An over 
    -- approximation is applied when the objective is to find a proof for a given goal. 
    function Z3_Goal_Precision( C : in Z3_Context ; G : in Z3_Goal ) return Z3_Goal_Prec;
-   pragma Import(C,Z3_Goal_Precision,"Z3_goal_precision");
    
    -- Add a new formula a to the given goal. 
    procedure Z3_Goal_Assert( C : in Z3_Context ; G : in Z3_Goal ; A : in Z3_Ast );
-   pragma Import(C,Z3_Goal_Assert,"Z3_goal_assert");
    
    -- Return true if the given goal contains the formula false.    
    function Z3_Goal_Inconsistent( C : in Z3_Context ; G : in Z3_Goal ) return Z3_Bool;
-   pragma Import(C,Z3_Goal_Inconsistent,"Z3_goal_inconsistent");
    
    -- Return the depth of the given goal. It tracks how many transformations were applied to it. 
    function Z3_Goal_Depth( C : in Z3_Context ; G : in Z3_Goal ) return Interfaces.C.Unsigned;
-   pragma Import(C,Z3_Goal_Depth,"Z3_goal_depth");
    
    -- Erase all formulas from the given goal. 
    procedure Z3_Goal_Reset( C : in Z3_Context ; G : in Z3_Goal);
-   pragma Import(C,Z3_Goal_Reset,"Z3_goal_reset");
 
    -- Return the number of formulas in the given goal.    
    function Z3_Goal_Size( C : in Z3_Context ; G : in Z3_Goal ) return Interfaces.C.Unsigned;
-   pragma Import(C,Z3_Goal_Size,"Z3_goal_size");
 
    -- Return a formula from the given goal.    
    function Z3_Goal_Formula( C : in Z3_Context ; G : in Z3_Goal ; Idx : in Interfaces.C.Unsigned ) return Z3_Ast;
-   pragma Import(C,Z3_Goal_Formula,"Z3_goal_formula");
 
    -- Return the number of formulas, subformulas and terms in the given goal.  
    function Z3_Goal_Num_Exprs( C : in Z3_Context ; G : in Z3_Goal ) return Interfaces.C.Unsigned;
-   pragma Import(C,Z3_Goal_Num_Exprs,"Z3_goal_num_exprs");
 
    -- Return true if the goal is empty, and it is precise or the product of a under approximation.  
    function Z3_Goal_Decided_Sat( C : in Z3_Context ; G : in Z3_Goal ) return Z3_Bool;
-   pragma Import(C,Z3_Goal_Decided_Sat,"Z3_goal_is_decided_sat");
 
    -- Return true if the goal contains false, and it is precise or the product of an over approximation.  
    function Z3_Goal_Decided_Unsat( C : in Z3_Context ; G : in Z3_Goal ) return Z3_Bool;
-   pragma Import(C,Z3_Goal_Decided_Unsat,"Z3_goal_is_decided_unsat");
 
    -- Copy a goal g from the context source to a the context target.  
    function Z3_Goal_Translate( C : in Z3_Context ; G : in Z3_Goal ) return Z3_Goal;
-   pragma Import(C,Z3_Goal_Translate,"Z3_goal_translate");
 
    -- Convert a goal into a string. 
    function Z3_Goal_To_String( C : in Z3_Context ; G : in Z3_Goal ) return Z3_String;
-   pragma Import(C,Z3_Goal_To_String,"Z3_goal_to_string");
    
+private
+   
+   pragma Import(C,Z3_Get_Error_Code,"Z3_get_error_code");
+   pragma Import(C,Z3_Set_Error_Handler,"Z3_set_error_handler");
+   pragma Import(C,Z3_Set_Error,"Z3_set_error");
+   pragma Import(C,Z3_Get_Error_Msg, "Z3_get_error_msg");
+   pragma Import(C,Z3_Get_Error_Msg_Ex,"Z3_get_error_msg_ex");
+   pragma Import(C,Z3_Get_Version,"Z3_get_version");
+   pragma Import(C,Z3_Enable_Trace,"Z3_enable_trace");
+   pragma Import(C,Z3_Disable_Trace,"Z3_disable_trace");
+   pragma Import(C,Z3_Reset_Memory,"Z3_reset_memory");
+   pragma Import(C,Z3_Mk_Goal,"Z3_mk_goal");
+   pragma Import(C,Z3_Goal_Inc_Ref,"Z3_goal_inc_ref");
+   pragma Import(C,Z3_Goal_Dec_Ref,"Z3_goal_dec_ref");
+   pragma Import(C,Z3_Goal_Precision,"Z3_goal_precision");
+   pragma Import(C,Z3_Goal_Assert,"Z3_goal_assert");
+   pragma Import(C,Z3_Goal_Inconsistent,"Z3_goal_inconsistent");
+   pragma Import(C,Z3_Goal_Depth,"Z3_goal_depth");
+   pragma Import(C,Z3_Goal_Reset,"Z3_goal_reset");
+   pragma Import(C,Z3_Goal_Size,"Z3_goal_size");
+   pragma Import(C,Z3_Goal_Formula,"Z3_goal_formula");
+   pragma Import(C,Z3_Goal_Num_Exprs,"Z3_goal_num_exprs");
+   pragma Import(C,Z3_Goal_Decided_Sat,"Z3_goal_is_decided_sat");
+   pragma Import(C,Z3_Goal_Decided_Unsat,"Z3_goal_is_decided_unsat");
+   pragma Import(C,Z3_Goal_Translate,"Z3_goal_translate");
+   pragma Import(C,Z3_Goal_To_String,"Z3_goal_to_string");
    
 end Z3;
 
